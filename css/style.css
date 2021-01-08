@@ -1,0 +1,195 @@
+
+*{ padding: 0px;
+   margin: 0px;
+}
+/*For class navbar css is being used*/
+.navbar{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+/*For class navi css is being used*/
+.navi{
+    float: right;
+}
+.navi a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.navi a:hover{
+    color: darkgray;
+    transition-duration: 1s;
+    letter-spacing: 1px;
+}/*For class title css is being used*/
+.title{
+    color:#fff;
+    margin: 2%;
+    font-size: 30px;
+    font-family: sans-serif;
+    
+}
+.title:hover{
+    color:darkgray;
+    cursor: pointer;
+    transition-duration:1s;
+    
+}
+
+.title a{
+    text-decoration-line: none;
+}
+/*For class Bhosi css is being used*/
+.bhosi h2:hover{
+    color:darkgrey;
+    transition-duration:1s; 
+    cursor: pointer;
+}
+.bhosi a:hover{
+    cursor: pointer;
+}
+
+.bhosi{
+    position: absolute;
+    color:dimgrey;
+    top: 30%;
+    left: 20%;
+}
+.bhosi h2{
+    font-size: 40px;
+}
+/*For Whole Body css is being used*/
+body{
+   position: relative;
+   background-image: url(../img/grass.jpg);
+   background-position: center; 
+   background-repeat: no-repeat; 
+   background-size: cover;
+
+}
+#active{
+    color:darkgray;
+    text-decoration: underline;
+}
+/* >>>>>> CSS for CONTACT<<<<< */
+
+.INFO{
+   margin-top: 100px;
+   color: #fff;
+   text-transform: uppercase;
+    
+    
+}
+.INFO h1{
+    font-size: 16px;
+    line-height: 10px;
+}
+
+form{
+    margin-top: 50px;
+    background-color: rgba(0,0,0,0.4);
+    width: 60%;
+    border: 2px rgba(0,0,0,0.6);
+    border-style: outset;
+    color: #000;
+    border-radius: 20px;
+    
+}
+.form-control{
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #000;
+    border-bottom: 1px solid gray;
+    color: #fff;
+    margin-bottom:  16px;
+    
+}
+
+input{
+    height: 35px;
+}
+.me{
+    background-image: url(../img/ii.jpg);
+    background-size: cover;
+}
+/* FOOTER  */
+
+footer{
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+}
+    
+footer p{
+    font-size: 18px;
+    color: aliceblue;
+    text-align: center;
+    top: 5px;
+    font-weight: bold;
+    
+}
+.cop-con{
+    margin-top: 15px;
+    
+}
+
+.social-icon{
+    padding: 10px;
+    
+}
+.social-icon img{
+    width: 45px;
+    height: 35px;
+}
+.social-icon a{
+    color: aliceblue;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
