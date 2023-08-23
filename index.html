@@ -666,14 +666,14 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Send Message" class="btn btn-primary">
+						<input type="submit" value="Send Message" class="btn btn-primary" onsubmit="sendEmail();">
 					</div>
 
 				</form>
 			</div>
 			<script type="text/javascript">
 				// Configure EmailJS
-				emailjs.init("user_your_user_id");
+				emailjs.init("5w3a5uBrI3N4x-TtI");
 
 				// Function to send the email
 				function sendEmail() {
@@ -686,7 +686,7 @@
 					};
 
 					// Send the email using EmailJS
-					emailjs.send("service_your_service_id", "template_your_template_id", formData)
+					emailjs.send("service_oawv5e7", "template_m6y1x63", formData)
 						.then(function (response) {
 							console.log("Email sent:", response);
 							alert("Email sent successfully!");
