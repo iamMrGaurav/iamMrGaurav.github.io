@@ -3,7 +3,7 @@
 
 <head>
 
-	<link rel="icon" href="images/user-3.jpg" type="image/gif" sizes="16x16">
+	<link rel="icon" href="images/me.jpeg" type="image/gif" sizes="16x16">
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<style>
 		.myContainer {
@@ -23,6 +23,241 @@
 			background-color: #00f36d;
 			transition: width 3s;
 		}
+
+		.tech-section-row {
+            background-color: #000;
+            color: #fff;
+            width: 100%;
+            padding: 60px 0;
+        }
+        
+        .tech-section-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .heading h2 {
+            color: #fff;
+            font-size: 32px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            margin: 0;
+        }
+        
+        .orbit-container {
+            position: relative;
+            width: 700px;
+            height: 700px;
+            margin: 0 auto;
+            border-radius: 50%;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+        
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: #8a2be2;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.8);
+            z-index: 10;
+        }
+        
+        .center-title {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+        
+        .center-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+        
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px dashed rgba(138, 43, 226, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .orbit-1 {
+            width: 280px;
+            height: 280px;
+        }
+        
+        .orbit-2 {
+            width: 460px;
+            height: 460px;
+        }
+        
+        .orbit-3 {
+            width: 640px;
+            height: 640px;
+        }
+        
+        .tech-item {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+            margin-left: -40px;
+            margin-top: -40px;
+            transition: transform 0.3s;
+        }
+        
+        .icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background: #1a1a1a;
+            border: 2px solid rgba(138, 43, 226, 0.6);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            z-index: 5;
+            transition: all 0.3s;
+        }
+        
+        .icon img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+            filter: brightness(1.2);
+        }
+        
+        .tech-item h3 {
+            font-size: 14px;
+            margin: 0;
+            background-color: rgba(30, 30, 30, 0.8);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+            opacity: 0;
+            transition: all 0.3s;
+            transform: translateY(-10px);
+            white-space: nowrap;
+        }
+        
+        .tech-item:hover {
+            z-index: 20;
+        }
+        
+        .tech-item:hover .icon {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.7);
+            border-color: rgba(138, 43, 226, 1);
+        }
+        
+        .tech-item:hover h3 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Orbit animations */
+        .orbit-1-item {
+            animation: orbit1 30s linear infinite;
+        }
+        
+        .orbit-2-item {
+            animation: orbit2 45s linear infinite;
+        }
+        
+        .orbit-3-item {
+            animation: orbit3 60s linear infinite;
+        }
+        
+        @keyframes orbit1 {
+            0% {
+                transform: rotate(0deg) translateX(140px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(140px) rotate(-360deg);
+            }
+        }
+        
+        @keyframes orbit2 {
+            0% {
+                transform: rotate(0deg) translateX(230px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg) translateX(230px) rotate(360deg);
+            }
+        }
+        
+        @keyframes orbit3 {
+            0% {
+                transform: rotate(0deg) translateX(320px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(320px) rotate(-360deg);
+            }
+        }
+        
+        /* Spread out starting positions */
+        .item-1 { animation-delay: 0s; }
+        .item-2 { animation-delay: -7.5s; }
+        .item-3 { animation-delay: -15s; }
+        .item-4 { animation-delay: -22.5s; }
+        
+        .item-5 { animation-delay: -5.625s; }
+        .item-6 { animation-delay: -11.25s; }
+        .item-7 { animation-delay: -16.875s; }
+        .item-8 { animation-delay: -22.5s; }
+        .item-9 { animation-delay: -28.125s; }
+        .item-10 { animation-delay: -33.75s; }
+        .item-11 { animation-delay: -39.375s; }
+        
+        .item-12 { animation-delay: -10s; }
+        .item-13 { animation-delay: -20s; }
+        .item-14 { animation-delay: -30s; }
+        .item-15 { animation-delay: -40s; }
+        .item-16 { animation-delay: -50s; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .orbit-container {
+                width: 500px;
+                height: 500px;
+                transform: scale(0.8);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .orbit-container {
+                width: 400px;
+                height: 400px;
+                transform: scale(0.6);
+            }
+        }
 	</style>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,7 +299,6 @@
 <body>
 	<div class="fh5co-loader"></div>
 	<nav>
-
 		<div class="items">
 			<ul>
 				<li>
@@ -74,18 +308,13 @@
 					<a href="#fh5co-resume"> Resume</a>
 				</li>
 				<li>
-					<a href="#fh5co-features">
-						Services
+					<a href="#stack">
+						Stack
 					</a>
 				</li>
 				<li>
 					<a href="#fh5co-work">
 						Work
-					</a>
-				</li>
-				<li>
-					<a href="#fh5co-skills">
-						Skills
 					</a>
 				</li>
 				<li>
@@ -95,7 +324,7 @@
 				</li>
 				<li>
 					<a href="#fh5co-about">
-						About me
+						About
 					</a>
 				</li>
 				<li>
@@ -121,9 +350,9 @@
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<div class="display-t js-fullheight">
 							<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-								<div class="profile-thumb" style="background: url(images/user-3.jpg);"></div>
+								<div class="profile-thumb" style="background: url(images/me-1.jpeg);"></div>
 								<h1><span>Gaurav Poudel</span></h1>
-								<h3><span> Software Engineer / Enthusiastic Photographer </span></h3>
+								<h3><span> Software Engineer</span></h3>
 							</div>
 						</div>
 					</div>
@@ -138,46 +367,23 @@
 						<h2>About Me</h2>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<ul class="info">
-							<li><span class="first-block">Full Name:</span><span class="second-block">Gaurav
-									Poudel</span></li>
-							<li><span class="first-block">Phone:</span><span class="second-block">981611638</span></li>
-							<li><span class="first-block">Email:</span><span
-									class="second-block">gauravpaudel2013@gmail.com</span></li>
-							<li><span class="first-block">Website:</span><span
-									class="second-block">www.gaurav-poudel-github.com</span></li>
-							<li><span class="first-block">Address:</span><span class="second-block">Pokhara
-									Lekhnath-30</span></li>
-						</ul>
-					</div>
+				<!-- <div class="row"> -->
 					<div class="col-md-8">
-						<h2 style="color: black;">Hello There!</h2>
+						<h2 style="color: black;">Moshi Moshi!</h2>
 						<p>
-							A recent graduate from London Metropolitan University, equipped with a BSc (Hons) in
-							Computing, I bring a wealth of technical aptitude and theoretical knowledge to the table.
-							Proficient in a diverse array of programming languages and abreast of the most cutting-edge
-							advancements in the field of computer science, I am eager to embark on a dynamic and
-							challenging professional journey. Driven by a passion for innovation and a steadfast
-							commitment to self-improvement, I am steadfast in my resolve to make a meaningful
-							contribution to the advancement of the industry through my work.</p>
+							A result-oriented software engineer with a First Class Honors Degree in Computing from London Metropolitan University, skilled in Java, Golang, Node.js, and Flutter. With extensive experience designing and developing scalable microservices architectures, mobile applications, and cloud-based solutions, excel in navigating software development life cycles and delivering efficient, user-friendly applications. Experience in Kubernetes, Azure, Prometheus, Terraform, HashiCorp Vault, Jenkins, Grafana, Argo CD, AWS, and GCP. Bring strong problem-solving skills and a commitment to high-quality project delivery.</p>
 						<p>
-						<ul class="fh5co-social-icons">
-
-							<li><a href="https://www.facebook.com/we.croods/"><i class="icon-facebook3"></i></a></li>
-							<li><a href="https://github.com/iamMrGaurav"><i class="icon-github2"></i></a></li>
-							<li><a href="https://www.instagram.com/we_croods/"><i class="icon-instagram2"></i></a></li>
-							<li><a href="https://twitter.com/GauravPaudel23"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/gaurav-poudel-25794b221/"> <i
-										class="fab fa-linkedin"></i></a></li>
-						
-
-
-						</ul>
+							<ul class="fh5co-social-icons">
+								<li><a href="https://github.com/iamMrGaurav"><i class="icon-github2"></i></a></li>
+								<li><a href="https://x.com/we_crood"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/iamgauravpoudel/"><i class="fab fa-linkedin"></i></a></li>
+								<li><a href="https://medium.com/@gauravpaudel2013"><i class="fab fa-medium"></i></a></li> 
+								<li><a href="https://www.instagram.com/__we_crood__/"><i class="icon-instagram2"></i></a></li>
+							</ul>
+							
 						</p>
 					</div>
-				</div>
+				<!-- </div> -->
 			</div>
 		</div>
 
@@ -192,98 +398,84 @@
 					<div class="col-md-12 col-md-offset-0">
 						<ul class="timeline">
 							<li class="timeline-heading text-center animate-box">
-								<div>
-									<h3>Work Experience</h3>
-								</div>
+								<div><h3>Work Experience</h3></div>
 							</li>
-							<li class="timeline-unverted animate-box">
+							<!-- Left Side -->
+							<li class="animate-box timeline-unverted">
 								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
-										<h3 class="timeline-title">Software Engineer</h3>
-										<span class="company">Sariska.io | Aug 2023 - Present | Bangalore</span>
+										<h3 class="timeline-title">Software Development Engineer</h3>
+										<span class="company">RoxStar Studioz | Feb 2025 - Present | Bengaluru, Karnataka, India</span>
 									</div>
 									<div class="timeline-body">
-										<p></p>
+										<p>
+											<ul style="text-align: left; padding-left: 20px; margin: 0;">
+												<li>Migrated legacy PHP codebase to Node.js with Socket.IO and Redis Cluster for improved performance and scalability.</li>
+												<li>Configured end-to-end Ingress in AKS using Web App Routing and Azure KeyVault for automated TLS certificate management.</li>
+												<li>Built an automated CI/CD pipeline with Azure and GitHub webhooks for seamless AKS deployments.</li>
+											</ul>
+										</p>
 									</div>
 								</div>
 							</li>
+							<!-- Right Side -->
 							<li class="animate-box timeline-inverted">
 								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
-										<h3 class="timeline-title">Flutter Developer (Intern)</h3>
-										<span class="company">Thulo Technology - | Nov 14 2021 - Jan 19 2022 | Pokhara</span>
+										<h3 class="timeline-title">Software Engineer</h3>
+										<span class="company">Sariska.io | Mar 2023 - Feb 2025 | Bengaluru, Karnataka, India</span>
 									</div>
 									<div class="timeline-body">
-										<!--add black bullet points -->
 										<p>
-										<ul>
-											<li>Beyond technical knowledge, I've grasped the importance of readiness for
-												industry shifts.</li>
-											<li>Skill evaluation and goal-setting abilities gained through the course.
-											</li>
-											<li>Proficiently developed app UIs from scratch and designed frontend pages.
-											</li>
-											<li>Implemented UI controllers for improved functionality and user
-												experience.</li>
-											<li>Earned positive user feedback on play store for contributions.</li>
-										</ul>
+											<ul>
+												<li>Integrated HashiCorp Vault into Kubernetes using Helm and ArgoCD with GCS backend via Terraform for secure data management.</li>
+												<li>Migrated AWS RDS to GCP using Terraform and executed queries for seamless data transfer.</li>
+												<li>Developed a Golang microservice for usage calculation across video, messaging, and streaming, with PostgreSQL integration.</li>
+												<li>Built and launched multiple Flutter Android apps, including a video conferencing SDK, on Google Play Store.</li>
+												<li>Exposed Prometheus metrics and Grafana dashboards (90th/99th percentile latency, status codes, request counts).</li>
+												<li>Reduced node wait time by 2-3 minutes via pod priority and preemption in Kubernetes for low-latency user experience.</li>
+												<li>Implemented version-specific image tags in Jenkins ECR pipeline, replacing "latest" tags.</li>
+												<li>Performed load testing with 10,000+ users and built a Golang cron job/locker for daily data sync.</li>
+											</ul>
 										</p>
-
-
+									</div>
+								</div>
+							</li>
+							<!-- Left Side -->
+							<li class="animate-box timeline-unverted">
+								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">Flutter Developer (Intern)</h3>
+										<span class="company">Thulo Technology | Nov 2021 - Jan 2022 | Pokhara, Nepal</span>
+									</div>
+									<div class="timeline-body">
+										<p>
+											<ul style="text-align: left; padding-left: 20px; margin: 0;">
+												<li>Developed app UIs from scratch, enhancing functionality with UI controllers.</li>
+												<li>Gained skills in industry readiness, evaluation, and goal-setting.</li>
+												<li>Earned positive Play Store feedback for contributions.</li>
+											</ul>
+										</p>
 									</div>
 								</div>
 							</li>
 							<br>
 							<li class="timeline-heading text-center animate-box">
-								<div style="color: black;">
-									<h3>Education</h3>
-								</div>
+								<div style="color: black;"><h3>Education</h3></div>
 							</li>
-							<li class="timeline-inverted animate-box">
-
-							</li>
-							<li class="animate-box timeline-unverted">
+							<!-- Right Side -->
+							<li class="animate-box timeline-inverted">
 								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
-										<h3 class="timeline-title">Bachelors Degree in IT.</h3>
-										<span class="company">London Metropolitan University , Informatics College |
-											2019 - 2022</span>
+										<h3 class="timeline-title">B.Sc. (Hons) in Computing</h3>
+										<span class="company">London Metropolitan University, Informatics College | 2019 - 2022</span>
 									</div>
 									<div class="timeline-body">
-										<p>
-											I have successfully finished my Bachelor's degree in Information Technology,
-											specifically a BSc (Hons) in Computing, from London Metropolitan University
-											securing first class honors degree.
-										</p>
-									</div>
-								</div>
-							</li>
-							<li class="timeline-inverted animate-box">
-								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title"> +2 college Science Stream </h3>
-										<span class="company">Amarsingh Higher Secondary School - 2017 - 2019</span>
-									</div>
-									<div class="timeline-body">
-										<p>During 2019, I accomplished my +2 Science education, securing distinct GPA
-											achievements for the 12th and 11th grades, ultimately contributing to an
-											encompassing CGPA.</p>
-									</div>
-								</div>
-							</li>
-							<li class="animate-box timeline-unverted">
-								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">School</h3>
-										<span class="company">Amarsingh School 2013-2016</span>
-									</div>
-									<div class="timeline-body">
-										<p>I completed my S.E.E in 2016 with an overall performance level.</p>
+										<p>Graduated with First Class Honors in Information Technology.</p>
 									</div>
 								</div>
 							</li>
@@ -293,93 +485,136 @@
 			</div>
 		</div>
 
-
-		<div id="fh5co-features" class="animate-box">
-			<div class="container">
-				<div class="services-padding">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-							<h2>My Services</h2>
-						</div>
+		<div id = "stack" class="tech-section-row">
+			<div class="tech-section-container">
+				<div class="heading">
+					<h2>Tech Stacks</h2>
+				</div>
+				
+				<div class="orbit-container">
+					<!-- Center element -->
+					<div class="center">
+						<div class="center-title">SWE</div>
 					</div>
-					<div class="row">
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-briefcase"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Android development</h3>
-									<p>Different type of applicatioin and its design can be done using spring
-										boot/flutter.</p>
-								</div>
-							</div>
+					
+					<!-- Orbits -->
+					<div class="orbit orbit-1"></div>
+					<div class="orbit orbit-2"></div>
+					<div class="orbit orbit-3"></div>
+					
+					<!-- Inner orbit items - Programming Languages -->
+					<div class="tech-item orbit-1-item item-1">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/go/go-original.svg" alt="Go">
 						</div>
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-briefcase"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Digital Strategy</h3>
-									<p>Able to deliver different strategy in techno field. </p>
-								</div>
-							</div>
-
-						</div>
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-search"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Analytics</h3>
-									<p>Able to anazlyze different fields data.</p>
-								</div>
-							</div>
-						</div>
+						<h3>Go</h3>
 					</div>
-
-
-					<div class="row">
-						<div class="col-md-4 text-center">
-
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-bargraph"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Web Developent</h3>
-									<p>Able build smooth web design.</p>
-								</div>
-							</div>
-
+					
+					<div class="tech-item orbit-1-item item-2">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/java/java-original.svg" alt="Java">
 						</div>
-
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-genius"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Backend Developement</h3>
-									<p>Able to to the backend Developement as i have been so fond of error handling.</p>
-								</div>
-							</div>
-
+						<h3>Java</h3>
+					</div>
+					
+					<div class="tech-item orbit-1-item item-3">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/nodejs/nodejs-original.svg" alt="NodeJS">
 						</div>
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-chat"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Front Development</h3>
-									<p>Its been long since i have been in front end and workig so hard to push the
-										limits.</p>
-								</div>
-							</div>
+						<h3>NodeJS</h3>
+					</div>
+					
+					<div class="tech-item orbit-1-item item-4">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/flutter/flutter-original.svg" alt="Flutter">
 						</div>
+						<h3>Flutter</h3>
+					</div>
+					
+					<!-- Middle orbit items - DevOps & Monitoring -->
+					<div class="tech-item orbit-2-item item-5">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/kubernetes/kubernetes-plain.svg" alt="K8s">
+						</div>
+						<h3>K8s</h3>
+					</div>
+					
+					<div class="tech-item orbit-2-item item-6">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/terraform/terraform-original.svg" alt="Terraform">
+						</div>
+						<h3>Terraform</h3>
+					</div>
+					
+					<div class="tech-item orbit-2-item item-7">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/grafana/grafana-original.svg" alt="Grafana">
+						</div>
+						<h3>Grafana</h3>
+					</div>
+					
+					<div class="tech-item orbit-2-item item-8">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/prometheus/prometheus-original.svg" alt="Prometheus">
+						</div>
+						<h3>Prometheus</h3>
+					</div>
+					
+					<div class="tech-item orbit-2-item item-9">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/jenkins/jenkins-original.svg" alt="Jenkins">
+						</div>
+						<h3>Jenkins</h3>
+					</div>
+					
+					<div class="tech-item orbit-2-item item-10">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/argocd/argocd-original.svg" alt="Argo CD">
+						</div>
+						<h3>Argo CD</h3>
+					</div>
+					
+					<div class="tech-item orbit-2-item item-11">
+						<div class="icon">
+							<img src="https://helm.sh/img/helm.svg" alt="Helm">
+						</div>
+						<h3>Helm</h3>
+					</div>
+					
+					<!-- Outer orbit items - Cloud & Databases -->
+					<div class="tech-item orbit-3-item item-12">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+						</div>
+						<h3>PostgreSQL</h3>
+					</div>
+					
+					<div class="tech-item orbit-3-item item-13">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/redis/redis-original.svg" alt="Redis">
+						</div>
+						<h3>Redis</h3>
+					</div>
+					
+					<div class="tech-item orbit-3-item item-14">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
+						</div>
+						<h3>AWS</h3>
+					</div>
+					
+					<div class="tech-item orbit-3-item item-15">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/googlecloud/googlecloud-original.svg" alt="GCP">
+						</div>
+						<h3>GCP</h3>
+					</div>
+					
+					<div class="tech-item orbit-3-item item-16">
+						<div class="icon">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/azure/azure-original.svg" alt="Azure">
+						</div>
+						<h3>Azure</h3>
 					</div>
 				</div>
 			</div>
