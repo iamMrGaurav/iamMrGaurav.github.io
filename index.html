@@ -403,10 +403,8 @@
 		</div>
 	</nav>
 	<div id="page">
-		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner"
-			style="background-image:url(images/cover_bg_3.jpg);" data-stellar-background-ratio="0.5">
-			<div class="overlay">
-			</div>
+		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner">
+			<div class="overlay"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center">
@@ -414,13 +412,216 @@
 							<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 								<div class="profile-thumb" style="background: url(images/me-1.jpeg);"></div>
 								<h1><span>Gaurav Poudel</span></h1>
-								<h3><span> Software Engineer / Photography aficionado</span></h3>
+								<h3><span>Software Engineer / Photography Aficionado</span></h3>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		
+			<!-- Music Player -->
+			<div class="music-player">
+				<audio id="backgroundMusic" loop>
+					<source src="images/blue.mp3" type="audio/mpeg">
+					Your browser does not support the audio element.
+				</audio>
+				<div class="music-controls">
+					<button id="playPauseBtn" class="control-btn">▶</button>
+					<button id="muteBtn" class="control-btn">♪</button>
+					<div class="progress-bar">
+						<div class="progress"></div>
+					</div>
+					<div class="rhythm-bars">
+						<span class="bar"></span>
+						<span class="bar"></span>
+						<span class="bar"></span>
+						<span class="bar"></span>
+						<span class="bar"></span>
+					</div>
+				</div>
+			</div>
+		
+			<style>
+				#fh5co-header {
+					background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(images/cover.jpeg);
+					background-size: cover;
+					background-repeat: no-repeat;
+					position: relative;
+					color: #fff;
+					font-family: 'Arial', sans-serif;
+				}
+		
+				.overlay {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 1;
+				}
+		
+				.container {
+					position: relative;
+					z-index: 2;
+				}
+		
+				.profile-thumb {
+					background-size: cover;
+					background-position: center;
+					width: 180px;
+					height: 180px;
+					border-radius: 50%;
+					margin: 0 auto 20px;
+					border: 4px solid white;
+					transition: transform 0.3s ease;
+				}
+		
+				.profile-thumb:hover {
+					transform: scale(1.05);
+				}
+		
+				h1 span {
+					font-size: 3.5rem;
+					font-weight: 700;
+					letter-spacing: 1px;
+					text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+				}
+		
+				h3 span {
+					font-size: 1.2rem;
+					font-weight: 300;
+					color: #b3b3b3;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+				}
+		
+				.music-player {
+					position: fixed;
+					bottom: 20px;
+					left: 50%;
+					transform: translateX(-50%);
+					background: rgba(18, 18, 18, 0.95);
+					padding: 10px 20px;
+					border-radius: 50px;
+					box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+					z-index: 10;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+		
+				.music-controls {
+					display: flex;
+					align-items: center;
+					gap: 15px;
+				}
+		
+				.control-btn {
+					padding: 0;
+					border: none;
+					background: transparent;
+					color: #fff;
+					cursor: pointer;
+					font-size: 20px;
+					width: 40px;
+					height: 40px;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: all 0.3s ease;
+				}
+		
+				.control-btn:hover {
+					background: rgba(255, 255, 255, 0.1);
+					color: #1db954;
+					transform: scale(1.1);
+				}
+		
+				.progress-bar {
+					width: 150px;
+					height: 4px;
+					background: #404040;
+					border-radius: 2px;
+					overflow: hidden;
+					position: relative;
+				}
+		
+				.progress {
+					width: 0;
+					height: 100%;
+					background: #1db954;
+					transition: width 0.1s linear;
+				}
+		
+				.rhythm-bars {
+					display: flex;
+					gap: 4px;
+					height: 20px;
+					align-items: flex-end;
+				}
+		
+				.bar {
+					width: 5px;
+					height: 5px;
+					background: #1db954;
+					border-radius: 2px;
+					transition: height 0.2s ease;
+				}
+		
+				.playing .bar {
+					animation: rhythm 0.6s infinite ease-in-out;
+				}
+		
+				@keyframes rhythm {
+					0% { height: 5px; }
+					50% { height: 20px; }
+					100% { height: 5px; }
+				}
+		
+				.bar:nth-child(2) { animation-delay: 0.1s; }
+				.bar:nth-child(3) { animation-delay: 0.2s; }
+				.bar:nth-child(4) { animation-delay: 0.3s; }
+				.bar:nth-child(5) { animation-delay: 0.4s; }
+			</style>
 		</header>
+		
+		<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const audio = document.getElementById('backgroundMusic');
+			const playPauseBtn = document.getElementById('playPauseBtn');
+			const muteBtn = document.getElementById('muteBtn');
+			const rhythmBars = document.querySelector('.rhythm-bars');
+			const progress = document.querySelector('.progress');
+		
+			playPauseBtn.addEventListener('click', () => {
+				if (audio.paused) {
+					audio.play();
+					playPauseBtn.textContent = '❚❚';
+					rhythmBars.classList.add('playing');
+				} else {
+					audio.pause();
+					playPauseBtn.textContent = '▶';
+					rhythmBars.classList.remove('playing');
+				}
+			});
+		
+			muteBtn.addEventListener('click', () => {
+				if (audio.muted) {
+					audio.muted = false;
+					muteBtn.textContent = '♪'; // Musical note for unmuted
+				} else {
+					audio.muted = true;
+					muteBtn.textContent = '♪̵'; // Headphone-like symbol for muted
+				}
+			});
+		
+			audio.addEventListener('timeupdate', () => {
+				const percentage = (audio.currentTime / audio.duration) * 100;
+				progress.style.width = `${percentage}%`;
+			});
+		});
+		</script>
 
 		<div id="fh5co-about" class="animate-box">
 			<div class="container">
