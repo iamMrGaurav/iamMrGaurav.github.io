@@ -454,16 +454,16 @@
 					.gif-container {
 						position: fixed; /* Sticks to the viewport */
 						right: 0; /* Attaches to the right edge of the screen */
-						top: 50%; /* Centers vertically; adjust as needed */
+						top: 50%; /* Centers vertically */
 						transform: translateY(-50%); /* Centers vertically based on its height */
-						width: 300px; /* Increased width for larger size (was 200px) */
+						width: 300px; /* Increased width for larger size */
 						z-index: 1000; /* Ensures it stays on top */
 					}
 					.flipped-gif {
 						transform: scaleX(-1); /* GIF flipped horizontally */
 						max-width: 100%; /* Scales to container width */
 						border-radius: 8px;
-						opacity: 1;
+						opacity: 0; /* Start hidden until viewed */
 						transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
 						position: absolute;
 						top: 0;
@@ -481,7 +481,7 @@
 					/* Optional: Adjust for smaller screens */
 					@media (max-width: 768px) {
 						.gif-container {
-							width: 150px; /* Adjusted for mobile (was 100px) */
+							width: 150px; /* Adjusted for mobile */
 						}
 					}
 				</style>
@@ -490,20 +490,40 @@
 			</div>
 		
 			<script>
-				const gif = document.querySelector('.flipped-gif');
-				const staticImg = document.querySelector('.static-img');
-				
-				const tempImg = new Image();
-				tempImg.src = gif.src;
-				
-				tempImg.onload = function() {
-					const estimatedDuration = 1350;
-					
-					setTimeout(() => {
-						gif.style.opacity = '0';
-						staticImg.style.opacity = '1';
-					}, estimatedDuration);
-				};
+				document.addEventListener("DOMContentLoaded", function () {
+					const gif = document.querySelector('.flipped-gif');
+					const staticImg = document.querySelector('.static-img');
+					const section = document.querySelector('#fh5co-about');
+					let hasPlayed = false; // Flag to track if GIF has played
+		
+					// Preload GIF to ensure it’s ready
+					const tempImg = new Image();
+					tempImg.src = gif.src;
+		
+					tempImg.onload = function() {
+						const observer = new IntersectionObserver((entries) => {
+							entries.forEach(entry => {
+								if (entry.isIntersecting && !hasPlayed) {
+									gif.style.opacity = '1';
+									hasPlayed = true;
+		
+									const estimatedDuration = 1350; 
+									setTimeout(() => {
+										gif.style.opacity = '0';
+										staticImg.style.opacity = '1';
+									}, estimatedDuration);
+		
+									// Stop observing after first play
+									observer.unobserve(section);
+								}
+							});
+						}, {
+							threshold: 0.5 // Trigger when 50% of the section is visible
+						});
+		
+						observer.observe(section);
+					};
+				});
 			</script>
 		</div>
 
