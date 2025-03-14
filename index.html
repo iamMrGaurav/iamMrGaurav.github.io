@@ -437,46 +437,58 @@
 						</p>
 						<p>
 							<ul class="fh5co-social-icons">
-								<li><a href="https://github.com/iamMrGaurav"><i class="icon-github2"></i></a></li>
-								<li><a href="https://x.com/we_crood"><i class="fab fa-twitter"></i></a></li>
-								<li><a href="https://www.linkedin.com/in/iamgauravpoudel/"><i class="fab fa-linkedin"></i></a></li>
-								<li><a href="https://medium.com/@gauravpaudel2013"><i class="fab fa-medium"></i></a></li> 
-								<li><a href="https://www.instagram.com/__we_crood__/"><i class="icon-instagram2"></i></a></li>
+								<li><a href="https://github.com/iamMrGaurav" target="_blank"><i class="icon-github2"></i></a></li>
+								<li><a href="https://x.com/we_crood" target="_blank"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/iamgauravpoudel/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+								<li><a href="https://medium.com/@gauravpaudel2013" target="_blank"><i class="fab fa-medium"></i></a></li> 
+								<li><a href="https://www.instagram.com/__we_crood__/" target="_blank"><i class="icon-instagram2"></i></a></li>
 							</ul>
 						</p>
 					</div>
-					<div class="col-md-4" style="padding-right: 0; position: relative;">
-						<div class="gif-container" style="position: absolute; right: -175px; top: 0; width: 100%; height: auto;">
-							<style>
-								.gif-container {
-									position: relative;
-								}
-								.flipped-gif {
-									transform: scaleX(-1); /* GIF flipped horizontally */
-									max-width: 100%;
-									border-radius: 8px;
-									opacity: 1;
-									transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
-									position: absolute;
-									top: 0;
-									left: 0;
-								}
-								.static-img {
-									max-width: 100%; /* Static image not flipped */
-									border-radius: 8px;
-									opacity: 0; /* Start hidden */
-									transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
-									position: absolute;
-									top: 0;
-									left: 0;
-								}
-							</style>
-							<img class="flipped-gif" src="images/anime-hello.gif" alt="Developer Animation">
-							<img class="static-img" src="images/static.png" alt="Static Developer Image">
-						</div>
-					</div>
 				</div>
 			</div>
+		
+			<!-- GIF Container positioned outside the grid -->
+			<div class="gif-container">
+				<style>
+					.gif-container {
+						position: fixed; /* Sticks to the viewport */
+						right: 0; /* Attaches to the right edge of the screen */
+						top: 50%; /* Centers vertically; adjust as needed */
+						transform: translateY(-50%); /* Centers vertically based on its height */
+						width: 200px; /* Fixed width; adjust as needed */
+						z-index: 1000; /* Ensures it stays on top */
+					}
+					.flipped-gif {
+						transform: scaleX(-1); /* GIF flipped horizontally */
+						max-width: 100%;
+						border-radius: 8px;
+						opacity: 1;
+						transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+					.static-img {
+						max-width: 100%; /* Static image not flipped */
+						border-radius: 8px;
+						opacity: 0; /* Start hidden */
+						transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+					/* Optional: Adjust for smaller screens */
+					@media (max-width: 768px) {
+						.gif-container {
+							width: 100px; /* Smaller width on mobile */
+						}
+					}
+				</style>
+				<img class="flipped-gif" src="images/anime-hello.gif" alt="Developer Animation">
+				<img class="static-img" src="images/static.png" alt="Static Developer Image">
+			</div>
+		
 			<script>
 				const gif = document.querySelector('.flipped-gif');
 				const staticImg = document.querySelector('.static-img');
@@ -737,7 +749,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://medium.com/@gauravpaudel2013/unlocking-the-power-of-cron-jobs-and-advisory-locks-in-go-a-comprehensive-guide-661376339ec5" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1382/format:webp/1*q-KV-E0yChI85DouGFx8tw.png);">
+						<a href="https://medium.com/@gauravpaudel2013/unlocking-the-power-of-cron-jobs-and-advisory-locks-in-go-a-comprehensive-guide-661376339ec5" target="_blank" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1382/format:webp/1*q-KV-E0yChI85DouGFx8tw.png);">
 							<div class="desc">
 								<h3>Add Cron job and cron locker using go</h3>
 								<span></span>
@@ -745,7 +757,7 @@
 						</a>
 					</div>
 					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://medium.com/@gauravpaudel2013/unleashing-kubernetes-efficiency-a-tale-of-saving-2-3-minutes-of-node-waiting-time-c5dd0963fcd0" class="work" style="background-image: url(https://avatars.githubusercontent.com/u/13629408?s=200&v=4);">
+						<a href="https://medium.com/@gauravpaudel2013/unleashing-kubernetes-efficiency-a-tale-of-saving-2-3-minutes-of-node-waiting-time-c5dd0963fcd0" target="_blank" class="work" style="background-image: url(https://avatars.githubusercontent.com/u/13629408?s=200&v=4);">
 							<div class="desc">
 								<h3>Kubernetes Efficiency: Saving Minutes of Node Waiting Time</h3>
 								<span></span>
@@ -753,7 +765,7 @@
 						</a>
 					</div>
 					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://medium.com/@gauravpaudel2013/integrate-hashi-corp-vault-with-gcs-backend-using-terraform-and-helm-in-k8s-cluster-f45c13b4c658" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1400/format:webp/1*kNZ2NgpOuR2Gi4bNAoYaOA.jpeg);">
+						<a href="https://medium.com/@gauravpaudel2013/integrate-hashi-corp-vault-with-gcs-backend-using-terraform-and-helm-in-k8s-cluster-f45c13b4c658" target="_blank" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1400/format:webp/1*kNZ2NgpOuR2Gi4bNAoYaOA.jpeg);">
 							<div class="desc">
 								<h3>Integrate Hashi Corp Vault, with GCS Backend Using Terraform and Helm in the k8s cluster.</h3>
 								<span></span>
@@ -761,7 +773,7 @@
 						</a>
 					</div>
 					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://medium.com/@gauravpaudel2013/setup-up-ingress-in-kubernetes-with-azure-app-routing-and-securing-wildcard-domains-using-certbot-b1f57b70a2a4" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QvbQTmFpgFi91g22z7599A.jpeg);">
+						<a href="https://medium.com/@gauravpaudel2013/setup-up-ingress-in-kubernetes-with-azure-app-routing-and-securing-wildcard-domains-using-certbot-b1f57b70a2a4" target="_blank" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QvbQTmFpgFi91g22z7599A.jpeg);">
 							<div class="desc">
 								<h3>Setup Up Ingress in Kubernetes with Azure App Routing and Securing Wildcard Domains Using Certbot TLS certificates</h3>
 								<span></span>
@@ -769,7 +781,7 @@
 						</a>
 					</div>
 					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-e8149d5f-b85b-4d28-8d6f-9acdedb85582.pdf" class="work"
+						<a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-e8149d5f-b85b-4d28-8d6f-9acdedb85582.pdf" target="_blank" class="work"
 							style="background-image: url(https://media.licdn.com/dms/image/v2/C4E0BAQFUctPVNz4kJQ/company-logo_200_200/company-logo_200_200/0/1660624612113/kodekloud_logo?e=1750291200&v=beta&t=bf8_KQkzUoHsDqDroJUJdrFww3gFkjC7gXIf4kgNa6Q);">
 							<div class="desc">
 								<h3>
@@ -779,7 +791,7 @@
 						</a>
 					</div>
 					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://play.google.com/store/apps/details?id=drivingexamnepal.app" class="work"
+						<a href="https://play.google.com/store/apps/details?id=drivingexamnepal.app" target="_blank" class="work"
 							style="background-image: url(images/portfolio-6.jpg);">
 							<div class="desc">
 								<h3>Driving License examination</h3>
@@ -796,7 +808,7 @@
 						</a>
 					</div>
 					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://github.com/iamMrGaurav/SpringBootCRUD_Web" class="work"
+						<a href="https://github.com/iamMrGaurav/SpringBootCRUD_Web" target="_blank" class="work"
 							style="background-image: url(https://avatars.githubusercontent.com/u/64460040?v=4);">
 							<div class="desc">
 								<h3>Spring boot CRUD WEB</h3>
@@ -1139,205 +1151,262 @@
 
 	<script>
 	    document.addEventListener("DOMContentLoaded", function () {
-        const hearts = document.querySelectorAll(".heart-icon");
+    // Hearts code unchanged
+    const hearts = document.querySelectorAll(".heart-icon");
+    hearts.forEach(heart => {
+        let randomLikes = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+        heart.dataset.count = randomLikes;
+        heart.nextElementSibling.textContent = randomLikes;
 
-        hearts.forEach(heart => {
-            let randomLikes = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
-            heart.dataset.count = randomLikes;
-            heart.nextElementSibling.textContent = randomLikes;
-
-            heart.addEventListener("click", function () {
-                let count = parseInt(this.dataset.count);
-
-                if (this.classList.contains("fas")) {
-                    this.classList.remove("fas");
-                    this.classList.add("far");
-                    count--;
-                } else {
-                    this.classList.remove("far");
-                    this.classList.add("fas");
-                    count++;
-                }
-
-                this.dataset.count = count;
-                this.nextElementSibling.textContent = count;
-            });
+        heart.addEventListener("click", function () {
+            let count = parseInt(this.dataset.count);
+            if (this.classList.contains("fas")) {
+                this.classList.remove("fas");
+                this.classList.add("far");
+                count--;
+            } else {
+                this.classList.remove("far");
+                this.classList.add("fas");
+                count++;
+            }
+            this.dataset.count = count;
+            this.nextElementSibling.textContent = count;
         });
-		
-		const scrollContainer = document.querySelector('.shots-scroll-wrapper');
-		const prevArrow = document.querySelector('.prev-arrow');
-		const nextArrow = document.querySelector('.next-arrow');
-		let autoScrollInterval;
-		let isHovering = false;
+    });
     
-		if (scrollContainer && prevArrow && nextArrow) {
-			const scrollDistance = 350 + 30;
-			
-			nextArrow.addEventListener('click', function() {
-				pauseAutoScroll();
-				
-				scrollContainer.scrollBy({
-					left: scrollDistance,
-					behavior: 'smooth'
-				});
-				
-				setTimeout(startAutoScroll, 1000);
-			});
-			
-			prevArrow.addEventListener('click', function() {
-		
-				pauseAutoScroll();
-				
-				scrollContainer.scrollBy({
-					left: -scrollDistance,
-					behavior: 'smooth'
-				});
-				
-				setTimeout(startAutoScroll, 1000);
-			});
-			
-			scrollContainer.addEventListener('mouseenter', function() {
-				isHovering = true;
-				pauseAutoScroll();
-			});
-			
-			scrollContainer.addEventListener('mouseleave', function() {
-				isHovering = false;
-				startAutoScroll();
-			});
-			
-			scrollContainer.addEventListener('scroll', function() {
-				const scrollLeft = scrollContainer.scrollLeft;
-				const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-				
-				if (scrollLeft <= 10) {
-					prevArrow.style.opacity = '0.5';
-				} else {
-					prevArrow.style.opacity = '1';
-				}
-				
-				if (scrollLeft >= maxScroll - 10) {
-					nextArrow.style.opacity = '0.5';
-				} else {
-					nextArrow.style.opacity = '1';
-				}
-			});
-			
-			// Function to handle automatic scrolling
-			function autoScroll() {
-				const scrollLeft = scrollContainer.scrollLeft;
-				const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-				
-				if (scrollLeft >= maxScroll - 10) {
-					scrollContainer.scrollTo({
-						left: 0,
-						behavior: 'smooth'
-					});
-				} else {
-					scrollContainer.scrollBy({
-						left: scrollDistance,
-						behavior: 'smooth'
-					});
-				}
-			}
-			
-			function startAutoScroll() {
-				if (!isHovering && !autoScrollInterval) {
-					autoScrollInterval = setInterval(autoScroll, 2000);
-				}
-			}
-			
-			function pauseAutoScroll() {
-				if (autoScrollInterval) {
-					clearInterval(autoScrollInterval);
-					autoScrollInterval = null;
-				}
-			}
-			
-			prevArrow.style.opacity = '0.5';
-			
-			startAutoScroll();
-			
-			document.addEventListener('visibilitychange', function() {
-				if (document.hidden) {
-					pauseAutoScroll();
-				} else if (!isHovering) {
-					startAutoScroll();
-				}
-			});
-		}
-		
-		const lightboxOverlay = document.createElement('div');
-		lightboxOverlay.className = 'lightbox-overlay';
-		lightboxOverlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; z-index: 1000; justify-content: center; align-items: center;';
-		
-		const lightboxContent = document.createElement('div');
-		lightboxContent.className = 'lightbox-content';
-		lightboxContent.style.cssText = 'position: relative; max-width: 90%; max-height: 90%;';
-		
-		const lightboxImage = document.createElement('img');
-		lightboxImage.className = 'lightbox-image';
-		lightboxImage.style.cssText = 'max-width: 100%; max-height: 90vh; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(0,0,0,0.5);';
-		
-		const closeButton = document.createElement('button');
-		closeButton.className = 'lightbox-close';
-		closeButton.innerHTML = '&times;';
-		closeButton.style.cssText = 'position: absolute; top: -40px; right: 0; font-size: 30px; color: white; background: transparent; border: none; cursor: pointer;';
-		
-		lightboxContent.appendChild(lightboxImage);
-		lightboxContent.appendChild(closeButton);
-		lightboxOverlay.appendChild(lightboxContent);
-		document.body.appendChild(lightboxOverlay);
-		
-		const blogImages = document.querySelectorAll('.blog-bg');
-		
-		blogImages.forEach(img => {
-			img.style.cursor = 'pointer';
-			img.addEventListener('click', function(e) {
-				e.preventDefault();
-				
-				pauseAutoScroll();
-				
-				const bgImageUrl = getComputedStyle(img).backgroundImage.slice(4, -1).replace(/"/g, "");
-				
-				lightboxImage.src = bgImageUrl;
-				lightboxOverlay.style.display = 'flex';
-				document.body.style.overflow = 'hidden';
-			});
-		});
-		
-		closeButton.addEventListener('click', function() {
-			lightboxOverlay.style.display = 'none';
-			document.body.style.overflow = 'auto';
-			
-			if (!isHovering) {
-				setTimeout(startAutoScroll, 1000);
-			}
-		});
-		
-		lightboxOverlay.addEventListener('click', function(e) {
-			if (e.target === lightboxOverlay) {
-				lightboxOverlay.style.display = 'none';
-				document.body.style.overflow = 'auto';
-				
-				if (!isHovering) {
-					setTimeout(startAutoScroll, 1000);
-				}
-			}
-		});
-		
-			document.addEventListener('keydown', function(e) {
-				if (e.key === 'Escape' && lightboxOverlay.style.display === 'flex') {
-					lightboxOverlay.style.display = 'none';
-					document.body.style.overflow = 'auto'; 
-					
-					if (!isHovering) {
-						setTimeout(startAutoScroll, 1000);
-					}
-				}
-			});
-			});
-
+    const scrollContainer = document.querySelector('.shots-scroll-wrapper');
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+    let autoScrollInterval;
+    let isHovering = false;
+    
+    if (scrollContainer && prevArrow && nextArrow) {
+        // Position arrows on left and right sides
+        prevArrow.style.position = 'absolute';
+        prevArrow.style.left = '10px';
+        prevArrow.style.top = '50%';
+        prevArrow.style.transform = 'translateY(-50%)';
+        prevArrow.style.zIndex = '10';
+        
+        nextArrow.style.position = 'absolute';
+        nextArrow.style.right = '10px';
+        nextArrow.style.top = '50%';
+        nextArrow.style.transform = 'translateY(-50%)';
+        nextArrow.style.zIndex = '10';
+        
+        // Make parent container position relative to contain absolute arrows
+        scrollContainer.parentElement.style.position = 'relative';
+        
+        const scrollDistance = 350 + 30;
+        
+        // Add drag scrolling functionality for mouse
+        let isMouseDown = false;
+        let startX, scrollLeft;
+        
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isMouseDown = true;
+            scrollContainer.style.cursor = 'grabbing';
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+            pauseAutoScroll();
+        });
+        
+        scrollContainer.addEventListener('mouseleave', () => {
+            isMouseDown = false;
+            scrollContainer.style.cursor = 'default';
+            isHovering = false;
+            startAutoScroll();
+        });
+        
+        scrollContainer.addEventListener('mouseup', () => {
+            isMouseDown = false;
+            scrollContainer.style.cursor = 'default';
+            setTimeout(startAutoScroll, 1000);
+        });
+        
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if (!isMouseDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2; // Adjust scroll speed
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Add touch events for mobile
+        scrollContainer.addEventListener('touchstart', (e) => {
+            pauseAutoScroll();
+            startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        }, { passive: false });
+        
+        scrollContainer.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 1) { // Single finger touch
+                e.preventDefault();
+                const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+                const walk = (x - startX) * 2;
+                scrollContainer.scrollLeft = scrollLeft - walk;
+            }
+        }, { passive: false });
+        
+        scrollContainer.addEventListener('touchend', () => {
+            setTimeout(startAutoScroll, 1000);
+        });
+        
+        // The rest of your existing code
+        scrollContainer.addEventListener('mouseenter', function() {
+            isHovering = true;
+            pauseAutoScroll();
+        });
+        
+        nextArrow.addEventListener('click', function() {
+            pauseAutoScroll();
+            scrollContainer.scrollBy({
+                left: scrollDistance,
+                behavior: 'smooth'
+            });
+            setTimeout(startAutoScroll, 1000);
+        });
+        
+        prevArrow.addEventListener('click', function() {
+            pauseAutoScroll();
+            scrollContainer.scrollBy({
+                left: -scrollDistance,
+                behavior: 'smooth'
+            });
+            setTimeout(startAutoScroll, 1000);
+        });
+        
+        scrollContainer.addEventListener('scroll', function() {
+            const scrollLeft = scrollContainer.scrollLeft;
+            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+            
+            if (scrollLeft <= 10) {
+                prevArrow.style.opacity = '0.5';
+            } else {
+                prevArrow.style.opacity = '1';
+            }
+            
+            if (scrollLeft >= maxScroll - 10) {
+                nextArrow.style.opacity = '0.5';
+            } else {
+                nextArrow.style.opacity = '1';
+            }
+        });
+        
+        // Auto scroll functions
+        function autoScroll() {
+            const scrollLeft = scrollContainer.scrollLeft;
+            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+            
+            if (scrollLeft >= maxScroll - 10) {
+                scrollContainer.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                scrollContainer.scrollBy({
+                    left: scrollDistance,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function startAutoScroll() {
+            if (!isHovering && !autoScrollInterval) {
+                autoScrollInterval = setInterval(autoScroll, 2000);
+            }
+        }
+        
+        function pauseAutoScroll() {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+        }
+        
+        prevArrow.style.opacity = '0.5';
+        startAutoScroll();
+        
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                pauseAutoScroll();
+            } else if (!isHovering) {
+                startAutoScroll();
+            }
+        });
+    }
+    
+    // Lightbox code unchanged
+    const lightboxOverlay = document.createElement('div');
+    lightboxOverlay.className = 'lightbox-overlay';
+    lightboxOverlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; z-index: 1000; justify-content: center; align-items: center;';
+    
+    const lightboxContent = document.createElement('div');
+    lightboxContent.className = 'lightbox-content';
+    lightboxContent.style.cssText = 'position: relative; max-width: 90%; max-height: 90%;';
+    
+    const lightboxImage = document.createElement('img');
+    lightboxImage.className = 'lightbox-image';
+    lightboxImage.style.cssText = 'max-width: 100%; max-height: 90vh; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(0,0,0,0.5);';
+    
+    const closeButton = document.createElement('button');
+    closeButton.className = 'lightbox-close';
+    closeButton.innerHTML = '&times;';
+    closeButton.style.cssText = 'position: absolute; top: -40px; right: 0; font-size: 30px; color: white; background: transparent; border: none; cursor: pointer;';
+    
+    lightboxContent.appendChild(lightboxImage);
+    lightboxContent.appendChild(closeButton);
+    lightboxOverlay.appendChild(lightboxContent);
+    document.body.appendChild(lightboxOverlay);
+    
+    const blogImages = document.querySelectorAll('.blog-bg');
+    
+    blogImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            pauseAutoScroll();
+            
+            const bgImageUrl = getComputedStyle(img).backgroundImage.slice(4, -1).replace(/"/g, "");
+            
+            lightboxImage.src = bgImageUrl;
+            lightboxOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    closeButton.addEventListener('click', function() {
+        lightboxOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        if (!isHovering) {
+            setTimeout(startAutoScroll, 1000);
+        }
+    });
+    
+    lightboxOverlay.addEventListener('click', function(e) {
+        if (e.target === lightboxOverlay) {
+            lightboxOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            if (!isHovering) {
+                setTimeout(startAutoScroll, 1000);
+            }
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightboxOverlay.style.display === 'flex') {
+            lightboxOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+            
+            if (!isHovering) {
+                setTimeout(startAutoScroll, 1000);
+            }
+        }
+    });
+});
 
 	</script>
 </body>
