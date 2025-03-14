@@ -448,7 +448,7 @@
 				</div>
 			</div>
 		
-			<!-- GIF Container positioned outside the grid -->
+			 <!-- GIF Container positioned outside the grid -->
 			<div class="gif-container">
 				<style>
 					.gif-container {
@@ -469,15 +469,6 @@
 						top: 0;
 						left: 0;
 					}
-					.static-img {
-						max-width: 100%; /* Scales to container width */
-						border-radius: 8px;
-						opacity: 0; /* Start hidden */
-						transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
-						position: absolute;
-						top: 0;
-						left: 0;
-					}
 					/* Optional: Adjust for smaller screens */
 					@media (max-width: 768px) {
 						.gif-container {
@@ -485,34 +476,24 @@
 						}
 					}
 				</style>
-				<img class="flipped-gif" src="images/anime-hello.gif" alt="Developer Animation">
-				<img class="static-img" src="images/static.png" alt="Static Developer Image">
+				<img class="flipped-gif" src="images/hi-anime.gif" alt="Developer Animation">
 			</div>
-		
 			<script>
 				document.addEventListener("DOMContentLoaded", function () {
 					const gif = document.querySelector('.flipped-gif');
-					const staticImg = document.querySelector('.static-img');
 					const section = document.querySelector('#fh5co-about');
 					let hasPlayed = false; // Flag to track if GIF has played
-		
+
 					// Preload GIF to ensure it’s ready
 					const tempImg = new Image();
 					tempImg.src = gif.src;
-		
+
 					tempImg.onload = function() {
 						const observer = new IntersectionObserver((entries) => {
 							entries.forEach(entry => {
 								if (entry.isIntersecting && !hasPlayed) {
 									gif.style.opacity = '1';
 									hasPlayed = true;
-		
-									const estimatedDuration = 1350; 
-									setTimeout(() => {
-										gif.style.opacity = '0';
-										staticImg.style.opacity = '1';
-									}, estimatedDuration);
-		
 									// Stop observing after first play
 									observer.unobserve(section);
 								}
@@ -520,7 +501,7 @@
 						}, {
 							threshold: 0.5 // Trigger when 50% of the section is visible
 						});
-		
+
 						observer.observe(section);
 					};
 				});
