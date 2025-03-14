@@ -456,12 +456,12 @@
 						right: 0; /* Attaches to the right edge of the screen */
 						top: 50%; /* Centers vertically; adjust as needed */
 						transform: translateY(-50%); /* Centers vertically based on its height */
-						width: 200px; /* Fixed width; adjust as needed */
+						width: 300px; /* Increased width for larger size (was 200px) */
 						z-index: 1000; /* Ensures it stays on top */
 					}
 					.flipped-gif {
 						transform: scaleX(-1); /* GIF flipped horizontally */
-						max-width: 100%;
+						max-width: 100%; /* Scales to container width */
 						border-radius: 8px;
 						opacity: 1;
 						transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
@@ -470,7 +470,7 @@
 						left: 0;
 					}
 					.static-img {
-						max-width: 100%; /* Static image not flipped */
+						max-width: 100%; /* Scales to container width */
 						border-radius: 8px;
 						opacity: 0; /* Start hidden */
 						transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
@@ -481,7 +481,7 @@
 					/* Optional: Adjust for smaller screens */
 					@media (max-width: 768px) {
 						.gif-container {
-							width: 100px; /* Smaller width on mobile */
+							width: 150px; /* Adjusted for mobile (was 100px) */
 						}
 					}
 				</style>
