@@ -5,6 +5,7 @@
 
 	<link rel="icon" href="images/me-1.jpeg" type="image/gif" sizes="16x16">
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
 	<style>
 		.tech-section-row {
             background-color: #000;
@@ -1284,29 +1285,50 @@
 				</form>
 			</div>
 			<script type="text/javascript">
-				// Configure EmailJS
-				emailjs.init("5w3a5uBrI3N4x-TtI");
-
-				// Function to send the email
+				
 				function sendEmail() {
-					var formData = {
-						firstname: document.getElementById("fname").value,
-						lastname: document.getElementById("lname").value,
-						email: document.getElementById("email").value,
-						subject: document.getElementById("subject").value,
-						message: document.getElementById("message").value
+					var firstName = document.getElementById('fname').value.trim();
+					var lastName = document.getElementById('lname').value.trim();
+					var userEmail = document.getElementById('email').value.trim();
+					var subject = document.getElementById('subject').value.trim();
+					var message = document.getElementById('message').value.trim();
+
+					if (!firstName || !lastName || !userEmail || !subject || !message) {
+						alert('Please fill in all fields.');
+						return;
+					}
+
+					var data = {
+						firstname: firstName,
+						lastname: lastName,
+						email: userEmail,
+						subject: subject,
+						message: message
 					};
 
-					// Send the email using EmailJS
-					emailjs.send("service_oawv5e7", "template_m6y1x63", formData)
-						.then(function (response) {
-							console.log("Email sent:", response);
-							alert("Email sent successfully!");
-						}, function (error) {
-							console.error("Error sending email:", error);
-							alert("Error sending email.");
-						});
+					fetch('https://test.emphands.com.au/send-gaurav', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify(data)
+					})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error('Network response was not ok.');
+						}
+						return response.text();
+					})
+					.then(data => {
+						alert('Email sent successfully!');
+						console.log('Server response:', data);
+					})
+					.catch(error => {
+						console.error('There was a problem with the fetch operation:', error);
+						alert('An error occurred while sending the email. Please try again later.');
+					});
 				}
+
 			</script>
 		</div>
 
@@ -1349,7 +1371,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
-	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 	<script>
 	    document.addEventListener("DOMContentLoaded", function () {
@@ -1609,8 +1630,7 @@
         }
     });
 });
-
-	</script>
+   </script>
 </body>
 
 </html>
