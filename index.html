@@ -6,325 +6,6 @@
 	<link rel="icon" href="images/me-1.jpeg" type="image/gif" sizes="16x16">
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="https://smtpjs.com/v3/smtp.js"></script>
-	<style>
-		.tech-section-row {
-            background-color: #000;
-            color: #fff;
-            width: 100%;
-            padding: 60px 0;
-        }
-        
-        .tech-section-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .heading {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .heading h2 {
-            color: #fff;
-            font-size: 32px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            margin: 0;
-        }
-        
-        .orbit-container {
-            position: relative;
-            width: 700px;
-            height: 700px;
-            margin: 0 auto;
-            border-radius: 50%;
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
-        }
-        
-        .center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140px;
-            height: 140px;
-            background: #8a2be2;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.8);
-            z-index: 10;
-        }
-        
-        .center-title {
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            margin-bottom: 5px;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-        }
-        
-        .center-items {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 14px;
-            color: #fff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-        }
-        
-        .orbit {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            border: 1px dashed rgba(138, 43, 226, 0.4);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .orbit-1 {
-            width: 280px;
-            height: 280px;
-        }
-        
-        .orbit-2 {
-            width: 460px;
-            height: 460px;
-        }
-        
-        .orbit-3 {
-            width: 640px;
-            height: 640px;
-        }
-        
-        .tech-item {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform-origin: 0 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 80px;
-            margin-left: -40px;
-            margin-top: -40px;
-            transition: transform 0.3s;
-        }
-        
-        .icon {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            background: #1a1a1a;
-            border: 2px solid rgba(138, 43, 226, 0.6);
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            z-index: 5;
-            transition: all 0.3s;
-        }
-        
-        .icon img {
-            width: 35px;
-            height: 35px;
-            object-fit: contain;
-            filter: brightness(1.2);
-        }
-        
-        .tech-item h3 {
-            font-size: 14px;
-            margin: 0;
-            background-color: rgba(30, 30, 30, 0.8);
-            color: #fff;
-            padding: 3px 8px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
-            opacity: 1;
-            transition: all 0.3s;
-            transform: translateY(0);
-            white-space: nowrap;
-        }
-        
-        .tech-item:hover {
-            z-index: 20;
-        }
-        
-        .tech-item:hover .icon {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.7);
-            border-color: rgba(138, 43, 226, 1);
-        }
-        
-        .tech-item:hover h3 {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Orbit animations */
-        .orbit-1-item {
-            animation: orbit1 30s linear infinite;
-        }
-        
-        .orbit-2-item {
-            animation: orbit2 45s linear infinite;
-        }
-        
-        .orbit-3-item {
-            animation: orbit3 60s linear infinite;
-        }
-        
-        @keyframes orbit1 {
-            0% {
-                transform: rotate(0deg) translateX(140px) rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg) translateX(140px) rotate(-360deg);
-            }
-        }
-        
-        @keyframes orbit2 {
-            0% {
-                transform: rotate(0deg) translateX(230px) rotate(0deg);
-            }
-            100% {
-                transform: rotate(-360deg) translateX(230px) rotate(360deg);
-            }
-        }
-        
-        @keyframes orbit3 {
-            0% {
-                transform: rotate(0deg) translateX(320px) rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg) translateX(320px) rotate(-360deg);
-            }
-        }
-        
-        /* Spread out starting positions */
-        .item-1 { animation-delay: 0s; }
-        .item-2 { animation-delay: -7.5s; }
-        .item-3 { animation-delay: -15s; }
-        .item-4 { animation-delay: -22.5s; }
-        
-        .item-5 { animation-delay: -5.625s; }
-        .item-6 { animation-delay: -11.25s; }
-        .item-7 { animation-delay: -16.875s; }
-        .item-8 { animation-delay: -22.5s; }
-        .item-9 { animation-delay: -28.125s; }
-        .item-10 { animation-delay: -33.75s; }
-        .item-11 { animation-delay: -39.375s; }
-        
-        .item-12 { animation-delay: -10s; }
-        .item-13 { animation-delay: -20s; }
-        .item-14 { animation-delay: -30s; }
-        .item-15 { animation-delay: -40s; }
-        .item-16 { animation-delay: -50s; }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .orbit-container {
-                width: 500px;
-                height: 500px;
-                transform: scale(0.8);
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .orbit-container {
-                width: 400px;
-                height: 400px;
-                transform: scale(0.6);
-            }
-        }
-
-				/* Scrollable Shots Section */
-		.shots-scroll-container {
-			position: relative;
-			width: 100%;
-			overflow: hidden;
-			padding: 20px 0;
-		}
-
-		.shots-scroll-wrapper {
-			display: flex;
-			overflow-x: auto;
-			scroll-behavior: smooth;
-			-webkit-overflow-scrolling: touch;
-			scrollbar-width: none; /* Firefox */
-			padding-bottom: 15px;
-		}
-
-		/* Hide scrollbar for Chrome/Safari/Opera */
-		.shots-scroll-wrapper::-webkit-scrollbar {
-			display: none;
-		}
-
-		.shot-item {
-			flex: 0 0 auto;
-			width: 350px;
-			padding: 0 15px;
-		}
-
-		/* Make sure the blog cards maintain their style */
-		.shot-item .fh5co-blog {
-			margin-bottom: 0;
-			height: 100%;
-		}
-
-		/* Navigation arrows */
-		.shots-navigation {
-			display: flex;
-			justify-content: center;
-			gap: 20px;
-			margin-top: 20px;
-		}
-
-		.nav-arrow {
-			width: 40px;
-			height: 40px;
-			border-radius: 50%;
-			background-color: rgba(0, 0, 0, 0.1);
-			border: none;
-			color: #333;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			cursor: pointer;
-			transition: all 0.3s ease;
-		}
-
-		.nav-arrow:hover {
-			background-color: rgba(0, 0, 0, 0.2);
-		}
-
-		/* Responsive adjustments */
-		@media (max-width: 768px) {
-			.shot-item {
-				width: 300px;
-			}
-		}
-
-		@media (max-width: 480px) {
-			.shot-item {
-				width: 280px;
-			}
-		}
-
-		.heart-icon {
-			cursor: pointer;
-			transition: color 0.3s ease;
-			font-size: 20px;
-		}
-
-		.fas.fa-heart {
-			color: red;
-		}
-	</style>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Gaurav Poudel - Software Engineer</title>
@@ -421,16 +102,39 @@
 			</div>
 		
 			<!-- Music Player -->
+			<!-- Music Player -->
 			<div class="music-player">
 				<audio id="backgroundMusic" loop>
-					<source src="images/blue.mp3" type="audio/mpeg">
+					<source src="audio/blue.mp3" type="audio/mpeg">
 					Your browser does not support the audio element.
 				</audio>
 				<div class="music-controls">
-					<button id="playPauseBtn" class="control-btn">▶</button>
-					<button id="muteBtn" class="control-btn">♪</button>
-					<div class="progress-bar">
-						<div class="progress"></div>
+					<button id="playPauseBtn" class="control-btn">
+						<svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+							<path fill="currentColor" d="M8 5v14l11-7z"/>
+						</svg>
+						<svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="display: none;">
+							<path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+						</svg>
+					</button>
+					<button id="muteBtn" class="control-btn">
+						<svg class="volume-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+							<path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+						</svg>
+						<svg class="mute-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="display: none;">
+							<path fill="currentColor" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+						</svg>
+					</button>
+					<div class="track-info">
+						<span class="track-title">Yung Kai - Blue</span>
+						<div class="time-display">
+							<span id="currentTime">0:00</span>
+							<div class="progress-bar">
+								<div class="progress"></div>
+								<div class="progress-handle"></div>
+							</div>
+							<span id="duration">0:00</span>
+						</div>
 					</div>
 					<div class="rhythm-bars">
 						<span class="bar"></span>
@@ -443,187 +147,21 @@
 			</div>
 		
 			<style>
-				#fh5co-header {
-					background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(images/cover.jpeg);
-					background-size: cover;
-					background-repeat: no-repeat;
-					position: relative;
-					color: #fff;
-					font-family: 'Arial', sans-serif;
-				}
-		
-				.overlay {
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					z-index: 1;
-				}
-		
-				.container {
-					position: relative;
-					z-index: 2;
-				}
-		
-				.profile-thumb {
-					background-size: cover;
-					background-position: center;
-					width: 180px;
-					height: 180px;
-					border-radius: 50%;
-					margin: 0 auto 20px;
-					border: 4px solid white;
-					transition: transform 0.3s ease;
-				}
-		
-				.profile-thumb:hover {
-					transform: scale(1.05);
-				}
-		
-				h1 span {
-					font-size: 3.5rem;
-					font-weight: 700;
-					letter-spacing: 1px;
-					text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-				}
-		
-				h3 span {
-					font-size: 1.2rem;
-					font-weight: 300;
-					color: #b3b3b3;
-					text-transform: uppercase;
-					letter-spacing: 2px;
-				}
-		
-				.music-player {
-					position: fixed;
-					bottom: 20px;
-					left: 50%;
-					transform: translateX(-50%);
-					background: rgba(18, 18, 18, 0.95);
-					padding: 10px 20px;
-					border-radius: 50px;
-					box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
-					z-index: 10;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
-		
-				.music-controls {
-					display: flex;
-					align-items: center;
-					gap: 15px;
-				}
-		
-				.control-btn {
-					padding: 0;
-					border: none;
-					background: transparent;
-					color: #fff;
-					cursor: pointer;
-					font-size: 20px;
-					width: 40px;
-					height: 40px;
-					border-radius: 50%;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					transition: all 0.3s ease;
-				}
-		
-				.control-btn:hover {
-					background: rgba(255, 255, 255, 0.1);
-					color: #1db954;
-					transform: scale(1.1);
-				}
-		
-				.progress-bar {
-					width: 150px;
-					height: 4px;
-					background: #404040;
-					border-radius: 2px;
-					overflow: hidden;
-					position: relative;
-				}
-		
-				.progress {
-					width: 0;
-					height: 100%;
-					background: #1db954;
-					transition: width 0.1s linear;
-				}
-		
-				.rhythm-bars {
-					display: flex;
-					gap: 4px;
-					height: 20px;
-					align-items: flex-end;
-				}
-		
-				.bar {
-					width: 5px;
-					height: 5px;
-					background: #1db954;
-					border-radius: 2px;
-					transition: height 0.2s ease;
-				}
-		
-				.playing .bar {
-					animation: rhythm 0.6s infinite ease-in-out;
-				}
-		
-				@keyframes rhythm {
-					0% { height: 5px; }
-					50% { height: 20px; }
-					100% { height: 5px; }
-				}
-		
-				.bar:nth-child(2) { animation-delay: 0.1s; }
-				.bar:nth-child(3) { animation-delay: 0.2s; }
-				.bar:nth-child(4) { animation-delay: 0.3s; }
-				.bar:nth-child(5) { animation-delay: 0.4s; }
+			#fh5co-header {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(images/cover.jpeg);
+				background-size: cover;
+				background-repeat: no-repeat;
+				position: relative;
+				color: #fff;
+				font-family: 'Arial', sans-serif;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 			</style>
 		</header>
 		
-		<script>
-		document.addEventListener('DOMContentLoaded', () => {
-			const audio = document.getElementById('backgroundMusic');
-			const playPauseBtn = document.getElementById('playPauseBtn');
-			const muteBtn = document.getElementById('muteBtn');
-			const rhythmBars = document.querySelector('.rhythm-bars');
-			const progress = document.querySelector('.progress');
-		
-			playPauseBtn.addEventListener('click', () => {
-				if (audio.paused) {
-					audio.play();
-					playPauseBtn.textContent = '❚❚';
-					rhythmBars.classList.add('playing');
-				} else {
-					audio.pause();
-					playPauseBtn.textContent = '▶';
-					rhythmBars.classList.remove('playing');
-				}
-			});
-		
-			muteBtn.addEventListener('click', () => {
-				if (audio.muted) {
-					audio.muted = false;
-					muteBtn.textContent = '♪'; // Musical note for unmuted
-				} else {
-					audio.muted = true;
-					muteBtn.textContent = '♪̵'; // Headphone-like symbol for muted
-				}
-			});
-		
-			audio.addEventListener('timeupdate', () => {
-				const percentage = (audio.currentTime / audio.duration) * 100;
-				progress.style.width = `${percentage}%`;
-			});
-		});
-		</script>
-
 		<div id="fh5co-about" class="animate-box">
 			<div class="container">
 				<div class="row">
@@ -652,62 +190,8 @@
 		
 			 <!-- GIF Container positioned outside the grid -->
 			<div class="gif-container">
-				<style>
-					.gif-container {
-						position: fixed; /* Sticks to the viewport */
-						right: 0; /* Attaches to the right edge of the screen */
-						top: 20%; /* Centers vertically */
-						transform: translateY(-50%); /* Centers vertically based on its height */
-						width: 300px; /* Increased width for larger size */
-						z-index: 1000; /* Ensures it stays on top */
-					}
-					.flipped-gif {
-						transform: scaleX(-1); /* GIF flipped horizontally */
-						max-width: 100%; /* Scales to container width */
-						border-radius: 8px;
-						opacity: 0; /* Start hidden until viewed */
-						transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
-						position: absolute;
-						top: 0;
-						left: 0;
-					}
-					/* Optional: Adjust for smaller screens */
-					@media (max-width: 768px) {
-						.gif-container {
-							width: 150px; /* Adjusted for mobile */
-						}
-					}
-				</style>
 				<img class="flipped-gif" src="images/hi-anime.gif" alt="Developer Animation">
 			</div>
-			<script>
-				document.addEventListener("DOMContentLoaded", function () {
-					const gif = document.querySelector('.flipped-gif');
-					const section = document.querySelector('#fh5co-about');
-					let hasPlayed = false; // Flag to track if GIF has played
-
-					// Preload GIF to ensure it’s ready
-					const tempImg = new Image();
-					tempImg.src = gif.src;
-
-					tempImg.onload = function() {
-						const observer = new IntersectionObserver((entries) => {
-							entries.forEach(entry => {
-								if (entry.isIntersecting && !hasPlayed) {
-									gif.style.opacity = '1';
-									hasPlayed = true;
-									// Stop observing after first play
-									observer.unobserve(section);
-								}
-							});
-						}, {
-							threshold: 0.5 // Trigger when 50% of the section is visible
-						});
-
-						observer.observe(section);
-					};
-				});
-			</script>
 		</div>
 
 		<div id="fh5co-resume" class="fh5co-bg-color">
@@ -1058,7 +542,7 @@
 						<!-- Shot 2 -->
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(images/ocean_stand.jpg);"></a>
+								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/ocean_stand.jpg?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">Jun. 17th 2024</span>
 									<h3><a>Ocean Sunset</a></h3>
@@ -1076,7 +560,7 @@
 						<!-- Shot 3 -->
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(images/me.jpeg);"></a>
+								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/me.jpeg?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">Dec. 15th 2024</span>
 									<h3><a >Away from chaos</a></h3>
@@ -1095,7 +579,7 @@
 						<!-- Shot 4 (Example) -->
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a  class="blog-bg" style="background-image: url(images/himal.jpeg);"></a>
+								<a  class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/himal.jpeg?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">Apr. 15th 2024</span>
 									<h3><a >Mountain Sunrise.</a></h3>
@@ -1112,7 +596,7 @@
 
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a  class="blog-bg" style="background-image: url(images/to-ocean.jpeg);"></a>
+								<a  class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/to-ocean.jpeg?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">Dec. 3 2022</span>
 									<h3><a>Ocean is pretty unreal!!</a></h3>
@@ -1129,7 +613,7 @@
 
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(images/personal.jpg);"></a>
+								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/personal.jpg?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">Sep 27. 2024</span>
 									<h3><a >Its a Funny world</a></h3>
@@ -1146,7 +630,7 @@
 
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(images/left-cap.webp);"></a>
+								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/left-cap.webp?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">Dec 3. 2022</span>
 									<h3><a>:)</a></h3>
@@ -1163,7 +647,7 @@
 
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(images/above-cloud.jpg);"></a>
+								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/above-cloud.jpg?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">Mar. 5th 2021</span>
 									<h3><a>Above the Cloud</a></h3>
@@ -1180,7 +664,7 @@
 
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(images/city.jpeg);"></a>
+								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/city.jpeg?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">Oct 20. 2024</span>
 									<h3><a>HomeTown</a></h3>
@@ -1197,7 +681,7 @@
 						
 						<div class="shot-item">
 							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(images/explore.jpg);"></a>
+								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/explore.jpg?raw=true);"></a>
 								<div class="blog-text">
 									<span class="posted_on">2024</span>
 									<h3><a></a></h3>
@@ -1309,76 +793,6 @@
 					<button onclick="hideErrorOverlay()" class="btn-ok">OK</button>
 				</div>
 			</div>
-		
-			<script type="text/javascript">
-				function sendEmail(event) {
-					event.preventDefault();
-					
-					var firstName = document.getElementById('fname').value.trim();
-					var lastName = document.getElementById('lname').value.trim();
-					var userEmail = document.getElementById('email').value.trim();
-					var subject = document.getElementById('subject').value.trim();
-					var message = document.getElementById('message').value.trim();
-		
-					if (!firstName || !lastName || !userEmail || !subject || !message) {
-						showErrorOverlay('Please fill in all fields.');
-						return;
-					}
-		
-					document.getElementById('loaderOverlay').style.display = 'flex';
-		
-					var data = {
-						firstname: firstName,
-						lastname: lastName,
-						email: userEmail,
-						subject: subject,
-						message: message
-					};
-		
-					fetch('https://test.emphands.com.au/send-gaurav', {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify(data)
-					})
-					.then(response => {
-						if (!response.ok) {
-							throw new Error('Network response was not ok.');
-						}
-						return response.text();
-					})
-					.then(data => {
-						console.log('Server response:', data);
-						document.getElementById('contactForm').reset(); // Reset form
-						showSuccessOverlay();
-					})
-					.catch(error => {
-						console.error('There was a problem with the fetch operation:', error);
-						showErrorOverlay('An error occurred while sending the email. Please try again later.');
-					})
-					.finally(() => {
-						document.getElementById('loaderOverlay').style.display = 'none';
-					});
-				}
-		
-				function showSuccessOverlay() {
-					document.getElementById('successOverlay').style.display = 'flex';
-				}
-		
-				function hideSuccessOverlay() {
-					document.getElementById('successOverlay').style.display = 'none';
-				}
-		
-				function showErrorOverlay(message) {
-					document.getElementById('errorOverlay').querySelector('p').textContent = message;
-					document.getElementById('errorOverlay').style.display = 'flex';
-				}
-		
-				function hideErrorOverlay() {
-					document.getElementById('errorOverlay').style.display = 'none';
-				}
-			</script>
 			<style>
 				.spinner {
 					border: 4px solid rgba(255, 255, 255, 0.3);
@@ -1516,266 +930,5 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
-
-	<script>
-	    document.addEventListener("DOMContentLoaded", function () {
-    // Hearts code unchanged
-    const hearts = document.querySelectorAll(".heart-icon");
-    hearts.forEach(heart => {
-        let randomLikes = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
-        heart.dataset.count = randomLikes;
-        heart.nextElementSibling.textContent = randomLikes;
-
-        heart.addEventListener("click", function () {
-            let count = parseInt(this.dataset.count);
-            if (this.classList.contains("fas")) {
-                this.classList.remove("fas");
-                this.classList.add("far");
-                count--;
-            } else {
-                this.classList.remove("far");
-                this.classList.add("fas");
-                count++;
-            }
-            this.dataset.count = count;
-            this.nextElementSibling.textContent = count;
-        });
-    });
-    
-    const scrollContainer = document.querySelector('.shots-scroll-wrapper');
-    const prevArrow = document.querySelector('.prev-arrow');
-    const nextArrow = document.querySelector('.next-arrow');
-    let autoScrollInterval;
-    let isHovering = false;
-    
-    if (scrollContainer && prevArrow && nextArrow) {
-        // Position arrows on left and right sides
-        prevArrow.style.position = 'absolute';
-        prevArrow.style.left = '10px';
-        prevArrow.style.top = '50%';
-        prevArrow.style.transform = 'translateY(-50%)';
-        prevArrow.style.zIndex = '10';
-        
-        nextArrow.style.position = 'absolute';
-        nextArrow.style.right = '10px';
-        nextArrow.style.top = '50%';
-        nextArrow.style.transform = 'translateY(-50%)';
-        nextArrow.style.zIndex = '10';
-        
-        // Make parent container position relative to contain absolute arrows
-        scrollContainer.parentElement.style.position = 'relative';
-        
-        const scrollDistance = 350 + 30;
-        
-        // Add drag scrolling functionality for mouse
-        let isMouseDown = false;
-        let startX, scrollLeft;
-        
-        scrollContainer.addEventListener('mousedown', (e) => {
-            isMouseDown = true;
-            scrollContainer.style.cursor = 'grabbing';
-            startX = e.pageX - scrollContainer.offsetLeft;
-            scrollLeft = scrollContainer.scrollLeft;
-            pauseAutoScroll();
-        });
-        
-        scrollContainer.addEventListener('mouseleave', () => {
-            isMouseDown = false;
-            scrollContainer.style.cursor = 'default';
-            isHovering = false;
-            startAutoScroll();
-        });
-        
-        scrollContainer.addEventListener('mouseup', () => {
-            isMouseDown = false;
-            scrollContainer.style.cursor = 'default';
-            setTimeout(startAutoScroll, 3000);
-        });
-        
-        scrollContainer.addEventListener('mousemove', (e) => {
-            if (!isMouseDown) return;
-            e.preventDefault();
-            const x = e.pageX - scrollContainer.offsetLeft;
-            const walk = (x - startX) * 2; // Adjust scroll speed
-            scrollContainer.scrollLeft = scrollLeft - walk;
-        });
-        
-        // Add touch events for mobile
-        scrollContainer.addEventListener('touchstart', (e) => {
-            pauseAutoScroll();
-            startX = e.touches[0].pageX - scrollContainer.offsetLeft;
-            scrollLeft = scrollContainer.scrollLeft;
-        }, { passive: false });
-        
-        scrollContainer.addEventListener('touchmove', (e) => {
-            if (e.touches.length === 1) { // Single finger touch
-                e.preventDefault();
-                const x = e.touches[0].pageX - scrollContainer.offsetLeft;
-                const walk = (x - startX) * 2;
-                scrollContainer.scrollLeft = scrollLeft - walk;
-            }
-        }, { passive: false });
-        
-        scrollContainer.addEventListener('touchend', () => {
-            setTimeout(startAutoScroll, 3000);
-        });
-        
-        // The rest of your existing code
-        scrollContainer.addEventListener('mouseenter', function() {
-            isHovering = true;
-            pauseAutoScroll();
-        });
-        
-        nextArrow.addEventListener('click', function() {
-            pauseAutoScroll();
-            scrollContainer.scrollBy({
-                left: scrollDistance,
-                behavior: 'smooth'
-            });
-            setTimeout(startAutoScroll, 3000);
-        });
-        
-        prevArrow.addEventListener('click', function() {
-            pauseAutoScroll();
-            scrollContainer.scrollBy({
-                left: -scrollDistance,
-                behavior: 'smooth'
-            });
-            setTimeout(startAutoScroll, 3000);
-        });
-        
-        scrollContainer.addEventListener('scroll', function() {
-            const scrollLeft = scrollContainer.scrollLeft;
-            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-            
-            if (scrollLeft <= 10) {
-                prevArrow.style.opacity = '0.5';
-            } else {
-                prevArrow.style.opacity = '1';
-            }
-            
-            if (scrollLeft >= maxScroll - 10) {
-                nextArrow.style.opacity = '0.5';
-            } else {
-                nextArrow.style.opacity = '1';
-            }
-        });
-        
-        // Auto scroll functions
-        function autoScroll() {
-            const scrollLeft = scrollContainer.scrollLeft;
-            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-            
-            if (scrollLeft >= maxScroll - 10) {
-                scrollContainer.scrollTo({
-                    left: 0,
-                    behavior: 'smooth'
-                });
-            } else {
-                scrollContainer.scrollBy({
-                    left: scrollDistance,
-                    behavior: 'smooth'
-                });
-            }
-        }
-        
-        function startAutoScroll() {
-            if (!isHovering && !autoScrollInterval) {
-                autoScrollInterval = setInterval(autoScroll, 3000);
-            }
-        }
-        
-        function pauseAutoScroll() {
-            if (autoScrollInterval) {
-                clearInterval(autoScrollInterval);
-                autoScrollInterval = null;
-            }
-        }
-        
-        prevArrow.style.opacity = '0.5';
-        startAutoScroll();
-        
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                pauseAutoScroll();
-            } else if (!isHovering) {
-                startAutoScroll();
-            }
-        });
-    }
-    
-    // Lightbox code unchanged
-    const lightboxOverlay = document.createElement('div');
-    lightboxOverlay.className = 'lightbox-overlay';
-    lightboxOverlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; z-index: 1000; justify-content: center; align-items: center;';
-    
-    const lightboxContent = document.createElement('div');
-    lightboxContent.className = 'lightbox-content';
-    lightboxContent.style.cssText = 'position: relative; max-width: 90%; max-height: 90%;';
-    
-    const lightboxImage = document.createElement('img');
-    lightboxImage.className = 'lightbox-image';
-    lightboxImage.style.cssText = 'max-width: 100%; max-height: 90vh; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(0,0,0,0.5);';
-    
-    const closeButton = document.createElement('button');
-    closeButton.className = 'lightbox-close';
-    closeButton.innerHTML = '&times;';
-    closeButton.style.cssText = 'position: absolute; top: -40px; right: 0; font-size: 30px; color: white; background: transparent; border: none; cursor: pointer;';
-    
-    lightboxContent.appendChild(lightboxImage);
-    lightboxContent.appendChild(closeButton);
-    lightboxOverlay.appendChild(lightboxContent);
-    document.body.appendChild(lightboxOverlay);
-    
-    const blogImages = document.querySelectorAll('.blog-bg');
-    
-    blogImages.forEach(img => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            pauseAutoScroll();
-            
-            const bgImageUrl = getComputedStyle(img).backgroundImage.slice(4, -1).replace(/"/g, "");
-            
-            lightboxImage.src = bgImageUrl;
-            lightboxOverlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-    });
-    
-    closeButton.addEventListener('click', function() {
-        lightboxOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        
-        if (!isHovering) {
-            setTimeout(startAutoScroll, 3000);
-        }
-    });
-    
-    lightboxOverlay.addEventListener('click', function(e) {
-        if (e.target === lightboxOverlay) {
-            lightboxOverlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            
-            if (!isHovering) {
-                setTimeout(startAutoScroll, 3000);
-            }
-        }
-    });
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightboxOverlay.style.display === 'flex') {
-            lightboxOverlay.style.display = 'none';
-            document.body.style.overflow = 'auto'; 
-            
-            if (!isHovering) {
-                setTimeout(startAutoScroll, 3000);
-            }
-        }
-    });
-});
-   </script>
 </body>
-
 </html>
