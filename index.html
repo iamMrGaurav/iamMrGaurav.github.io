@@ -1247,7 +1247,7 @@
 			</div>
 			<div class="choose animate-box">
 				<h2>Contact</h2>
-				<form action="#">
+				<form id="contactForm" onsubmit="sendEmail(event)">
 					<div class="row form-group">
 						<div class="col-md-6">
 							<input type="text" id="fname" class="form-control" placeholder="Your firstname">
@@ -1258,20 +1258,20 @@
 							<input type="text" id="lname" class="form-control" placeholder="Your lastname">
 						</div>
 					</div>
-
+		
 					<div class="row form-group">
 						<div class="col-md-12">
 							<input type="text" id="email" class="form-control" placeholder="Your email address">
 						</div>
 					</div>
-
+		
 					<div class="row form-group">
 						<div class="col-md-12">
 							<input type="text" id="subject" class="form-control"
 								placeholder="Your subject of this message">
 						</div>
 					</div>
-
+		
 					<div class="row form-group">
 						<div class="col-md-12">
 							<textarea name="message" id="message" cols="30" rows="10" class="form-control"
@@ -1279,25 +1279,36 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Send Message" class="btn btn-primary" onsubmit="sendEmail();">
+						<input type="submit" value="Send Message" class="btn btn-primary" id="submitButton">
 					</div>
-
 				</form>
 			</div>
+		
+			<!-- Popup Overlay Loader -->
+			<div id="loaderOverlay" class="loader-overlay">
+				<div class="loader-popup">
+					<div class="spinner"></div>
+					<p>Sending your message...</p>
+				</div>
+			</div>
+		
 			<script type="text/javascript">
-				
-				function sendEmail() {
+				function sendEmail(event) {
+					event.preventDefault();
+					
 					var firstName = document.getElementById('fname').value.trim();
 					var lastName = document.getElementById('lname').value.trim();
 					var userEmail = document.getElementById('email').value.trim();
 					var subject = document.getElementById('subject').value.trim();
 					var message = document.getElementById('message').value.trim();
-
+		
 					if (!firstName || !lastName || !userEmail || !subject || !message) {
 						alert('Please fill in all fields.');
 						return;
 					}
-
+		
+					document.getElementById('loaderOverlay').style.display = 'flex';
+		
 					var data = {
 						firstname: firstName,
 						lastname: lastName,
@@ -1305,7 +1316,7 @@
 						subject: subject,
 						message: message
 					};
-
+		
 					fetch('https://test.emphands.com.au/send-gaurav', {
 						method: 'POST',
 						headers: {
@@ -1322,17 +1333,63 @@
 					.then(data => {
 						alert('Email sent successfully!');
 						console.log('Server response:', data);
+						document.getElementById('contactForm').reset();
 					})
 					.catch(error => {
 						console.error('There was a problem with the fetch operation:', error);
 						alert('An error occurred while sending the email. Please try again later.');
+					})
+					.finally(() => {
+						document.getElementById('loaderOverlay').style.display = 'none';
 					});
 				}
-
 			</script>
+			<style>
+				.spinner {
+					border: 4px solid rgba(255, 255, 255, 0.3);
+					width: 40px;
+					height: 40px;
+					border-radius: 50%;
+					border-top-color: #ffffff;
+					display: inline-block;
+					animation: spin 1s linear infinite;
+					margin-bottom: 15px;
+				}
+			
+				@keyframes spin {
+					0% { transform: rotate(0deg); }
+					100% { transform: rotate(360deg); }
+				}
+				
+				.loader-overlay {
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(0, 0, 0, 0.7);
+					display: none;
+					justify-content: center;
+					align-items: center;
+					z-index: 9999;
+				}
+				
+				.loader-popup {
+					background-color: rgba(0, 0, 0, 0.8);
+					border-radius: 10px;
+					padding: 30px 50px;
+					text-align: center;
+					box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+					color: white;
+				}
+				
+				.loader-popup p {
+					margin: 0;
+					font-size: 16px;
+					font-weight: 500;
+				}
+			</style>
 		</div>
-
-		<div id="map" class="fh5co-map"></div>
 	</div>
 
 	<div id="fh5co-footer">
