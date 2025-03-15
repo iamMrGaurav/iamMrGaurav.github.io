@@ -1284,11 +1284,29 @@
 				</form>
 			</div>
 		
-			<!-- Popup Overlay Loader -->
-			<div id="loaderOverlay" class="loader-overlay">
-				<div class="loader-popup">
+			<!-- Loading Popup Overlay -->
+			<div id="loaderOverlay" class="popup-overlay">
+				<div class="popup-content">
 					<div class="spinner"></div>
 					<p>Sending your message...</p>
+				</div>
+			</div>
+		
+			<!-- Success Popup Overlay -->
+			<div id="successOverlay" class="popup-overlay">
+				<div class="popup-content success-popup">
+					<div class="success-icon">✓</div>
+					<p>Email sent successfully!</p>
+					<button onclick="hideSuccessOverlay()" class="btn-ok">OK</button>
+				</div>
+			</div>
+		
+			<!-- Error Popup Overlay -->
+			<div id="errorOverlay" class="popup-overlay">
+				<div class="popup-content error-popup">
+					<div class="error-icon">✕</div>
+					<p>An error occurred while sending the email. Please try again later.</p>
+					<button onclick="hideErrorOverlay()" class="btn-ok">OK</button>
 				</div>
 			</div>
 		
@@ -1303,7 +1321,7 @@
 					var message = document.getElementById('message').value.trim();
 		
 					if (!firstName || !lastName || !userEmail || !subject || !message) {
-						alert('Please fill in all fields.');
+						showErrorOverlay('Please fill in all fields.');
 						return;
 					}
 		
@@ -1331,17 +1349,34 @@
 						return response.text();
 					})
 					.then(data => {
-						alert('Email sent successfully!');
 						console.log('Server response:', data);
-						document.getElementById('contactForm').reset();
+						document.getElementById('contactForm').reset(); // Reset form
+						showSuccessOverlay();
 					})
 					.catch(error => {
 						console.error('There was a problem with the fetch operation:', error);
-						alert('An error occurred while sending the email. Please try again later.');
+						showErrorOverlay('An error occurred while sending the email. Please try again later.');
 					})
 					.finally(() => {
 						document.getElementById('loaderOverlay').style.display = 'none';
 					});
+				}
+		
+				function showSuccessOverlay() {
+					document.getElementById('successOverlay').style.display = 'flex';
+				}
+		
+				function hideSuccessOverlay() {
+					document.getElementById('successOverlay').style.display = 'none';
+				}
+		
+				function showErrorOverlay(message) {
+					document.getElementById('errorOverlay').querySelector('p').textContent = message;
+					document.getElementById('errorOverlay').style.display = 'flex';
+				}
+		
+				function hideErrorOverlay() {
+					document.getElementById('errorOverlay').style.display = 'none';
 				}
 			</script>
 			<style>
@@ -1361,7 +1396,8 @@
 					100% { transform: rotate(360deg); }
 				}
 				
-				.loader-overlay {
+				/* Overlay Styles */
+				.popup-overlay {
 					position: fixed;
 					top: 0;
 					left: 0;
@@ -1374,19 +1410,71 @@
 					z-index: 9999;
 				}
 				
-				.loader-popup {
+				.popup-content {
 					background-color: rgba(0, 0, 0, 0.8);
 					border-radius: 10px;
 					padding: 30px 50px;
 					text-align: center;
 					box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 					color: white;
+					max-width: 400px;
 				}
 				
-				.loader-popup p {
-					margin: 0;
+				.popup-content p {
+					margin: 0 0 15px 0;
 					font-size: 16px;
 					font-weight: 500;
+				}
+		
+				/* Success Popup Styles */
+				.success-popup {
+					background-color: rgba(0, 100, 0, 0.9);
+				}
+		
+				.success-icon {
+					font-size: 40px;
+					color: white;
+					margin-bottom: 15px;
+					height: 50px;
+					width: 50px;
+					line-height: 50px;
+					border-radius: 50%;
+					background-color: rgba(255, 255, 255, 0.2);
+					margin: 0 auto 15px auto;
+				}
+		
+				/* Error Popup Styles */
+				.error-popup {
+					background-color: rgba(139, 0, 0, 0.9);
+				}
+		
+				.error-icon {
+					font-size: 30px;
+					color: white;
+					margin-bottom: 15px;
+					height: 50px;
+					width: 50px;
+					line-height: 50px;
+					border-radius: 50%;
+					background-color: rgba(255, 255, 255, 0.2);
+					margin: 0 auto 15px auto;
+				}
+		
+				/* Button Styles */
+				.btn-ok {
+					background-color: white;
+					color: #333;
+					border: none;
+					padding: 8px 25px;
+					border-radius: 5px;
+					cursor: pointer;
+					font-weight: bold;
+					margin-top: 10px;
+					transition: background-color 0.3s ease;
+				}
+		
+				.btn-ok:hover {
+					background-color: #f0f0f0;
 				}
 			</style>
 		</div>
