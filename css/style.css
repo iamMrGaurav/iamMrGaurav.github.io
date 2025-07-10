@@ -26,11 +26,24 @@ body {
   background: #fff;
  
 }
-@media only screen and (max-width: 600px) {
-  .items {
-    display:none;
+/* Mobile Navigation - Hide completely on mobile */
+@media only screen and (max-width: 768px) {
+  nav {
+    display: none !important;
   }
 
+  .items {
+    display: none !important;
+  }
+
+  .items ul {
+    display: none !important;
+  }
+
+  /* Remove body padding since nav is hidden */
+  body {
+    padding-top: 0 !important;
+  }
 }
 
 nav {
@@ -406,6 +419,10 @@ figure {
   padding: 7em 0;
   clear: both;
 }
+
+#fh5co-about {
+  position: relative;
+}
 @media screen and (max-width: 768px) {
   #fh5co-about,
   #fh5co-resume,
@@ -710,13 +727,32 @@ figure {
   color: #bfbfbf;
 }
 
+.timeline-body {
+  padding: 15px 0;
+}
+
 .timeline-body > p,
 .timeline-body > ul {
-  margin-bottom: 0;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
 .timeline-body > p + p {
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+.timeline-body ul {
+  padding-left: 20px;
+}
+
+.timeline-body ul li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.timeline-body ul li:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 992px) {
@@ -1703,13 +1739,19 @@ h3 span {
 
 /* Gif Containers*/
 
+/* Default GIF positioning - within About Me section */
 .gif-container {
-  position: fixed; /* Sticks to the viewport */
-  right: 0; /* Attaches to the right edge of the screen */
-  top: 20%; /* Centers vertically */
-  transform: translateY(-50%); /* Centers vertically based on its height */
-  width: 300px; /* Increased width for larger size */
-  z-index: 1000; /* Ensures it stays on top */
+  position: absolute;
+  right: 0px;
+  top: 30px;
+  width: 300px;
+  z-index: 5;
+  display: none; /* Hide by default */
+}
+
+/* Show GIF only in About Me section */
+#fh5co-about .gif-container {
+  display: block;
 }
 .flipped-gif {
   transform: scaleX(-1); /* GIF flipped horizontally */
@@ -1718,8 +1760,8 @@ h3 span {
   opacity: 0; /* Start hidden until viewed */
   transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 120;
+  left: 200;
 }
 /* Optional: Adjust for smaller screens */
 @media (max-width: 768px) {
@@ -2047,4 +2089,636 @@ font-size: 20px;
 
 .fas.fa-heart {
 color: red;
+}
+
+/* =======================================================
+* Mobile Responsive Styles
+* ======================================================= */
+
+/* Global Mobile Styles */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  /* Header Mobile Styles */
+  #fh5co-header {
+    height: 100vh;
+    padding: 20px 0;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-attachment: scroll !important;
+  }
+
+  #fh5co-header .col-md-8 {
+    margin: 0;
+    padding: 0 15px;
+  }
+
+  .profile-thumb {
+    width: 120px !important;
+    height: 120px !important;
+    margin: 0 auto 20px;
+  }
+
+  #fh5co-header h1 {
+    font-size: 28px;
+    margin: 20px 0 10px;
+  }
+
+  #fh5co-header h3 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .fh5co-social-icons {
+    margin: 20px 0;
+  }
+
+  .fh5co-social-icons li {
+    margin: 0 8px;
+  }
+
+  /* About Section Mobile */
+  #fh5co-about {
+    padding: 40px 0;
+    position: relative;
+  }
+
+  #fh5co-about {
+    padding: 40px 0;
+  }
+
+  #fh5co-about h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  #fh5co-about .col-md-8 {
+    margin: 0;
+    padding: 0 15px;
+  }
+
+  .gif-container {
+    position: absolute !important;
+    right: 0px !important;
+    top: 20px !important;
+    width: 160px !important;
+    z-index: 5 !important;
+    display: none !important; /* Hide by default */
+  }
+
+  /* Show GIF only in About Me section on mobile */
+  #fh5co-about .gif-container {
+    display: block !important;
+  }
+
+  .gif-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .flipped-gif {
+    transform: scaleX(-1) !important;
+  }
+
+  /* Resume Section Mobile */
+  #fh5co-resume {
+    padding: 40px 0;
+  }
+
+  .timeline {
+    margin: 0 15px;
+  }
+
+  .timeline-panel {
+    padding: 20px;
+    margin-left: 0;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .timeline-badge {
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    margin-left: 0;
+  }
+
+  .timeline-panel::before,
+  .timeline-panel::after {
+    display: none;
+  }
+
+  .timeline > li {
+    margin-bottom: 40px;
+  }
+
+  .timeline-body {
+    padding: 20px 0;
+  }
+
+  .timeline-body ul li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .timeline-heading h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .timeline-heading .company {
+    font-size: 13px;
+    line-height: 1.4;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* Tech Stack Mobile */
+  .tech-section-container {
+    padding: 40px 15px;
+  }
+
+  .orbit-container {
+    transform: scale(0.7);
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tech-item h3 {
+    font-size: 12px;
+  }
+
+  .tech-item .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Work Section Mobile */
+  #fh5co-work {
+    padding: 40px 0;
+  }
+
+  #fh5co-work .col-md-3 {
+    margin: 0 0 20px 0;
+    padding: 0 15px;
+  }
+
+  .work {
+    height: 200px;
+  }
+
+  /* Shots Section Mobile */
+  #fh5co-blog {
+    padding: 40px 0;
+  }
+
+  .shots-scroll-container {
+    margin: 20px 0;
+  }
+
+  .shot-item {
+    width: 280px;
+    margin: 0 10px;
+  }
+
+  .blog-text {
+    padding: 15px;
+  }
+
+  .blog-text h3 {
+    font-size: 16px;
+  }
+
+  .blog-text p {
+    font-size: 14px;
+  }
+
+  /* Contact Section Mobile */
+  #fh5co-consult {
+    padding: 40px 0;
+    display: block !important;
+    flex-direction: column !important;
+  }
+
+  #fh5co-consult .video {
+    display: none !important;
+  }
+
+  #fh5co-consult .choose {
+    width: 100% !important;
+    padding: 30px 20px !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+  }
+
+  /* Show contact title on mobile */
+  #fh5co-consult .choose h2 {
+    display: block !important;
+    font-size: 24px !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+    color: #333 !important;
+  }
+
+  .choose {
+    padding: 30px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .choose h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .form-control {
+    font-size: 16px;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+  }
+
+  .form-group {
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  .form-group .col-md-6,
+  .form-group .col-md-12 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #000 !important;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .btn-primary:hover {
+    background-color: #333 !important;
+  }
+
+  .btn-primary:active,
+  .btn-primary:focus {
+    background-color: #000 !important;
+    color: white !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+  /* Contact form inputs styling */
+  #fh5co-consult input[type="text"],
+  #fh5co-consult input[type="email"],
+  #fh5co-consult textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 15px !important;
+    font-size: 16px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    background: #fff !important;
+  }
+
+  #fh5co-consult textarea {
+    min-height: 120px !important;
+    resize: vertical !important;
+  }
+
+  /* Music Player Mobile */
+  .music-player {
+    position: fixed !important;
+    bottom: 15px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 95% !important;
+    max-width: 350px !important;
+    padding: 8px 12px !important;
+    border-radius: 25px !important;
+  }
+
+  .music-controls {
+    padding: 5px !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .track-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    margin: 0 8px !important;
+  }
+
+  .track-title {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 140px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .time-display {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 9px !important;
+  }
+
+  .time-display span {
+    font-size: 9px !important;
+    min-width: 25px !important;
+  }
+
+  .progress-bar {
+    width: 80px !important;
+  }
+
+  .time-display {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 9px !important;
+  }
+
+  .time-display span {
+    font-size: 9px !important;
+    min-width: 25px !important;
+  }
+
+  .rhythm-bars {
+    display: flex !important;
+    gap: 1.5px !important;
+    align-items: end !important;
+    height: 12px !important;
+    margin-left: 6px !important;
+  }
+
+  .rhythm-bars .bar {
+    width: 1.5px !important;
+    border-radius: 1px !important;
+    min-height: 2px !important;
+    transition: height 0.1s ease !important;
+  }
+
+  .control-btn {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+    padding: 4px !important;
+  }
+
+  .control-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* Footer Mobile */
+  #fh5co-footer {
+    padding: 20px 0;
+  }
+
+  #fh5co-footer p {
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile Styles */
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  #fh5co-header {
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  #fh5co-header h1 {
+    font-size: 24px;
+  }
+
+  #fh5co-header h3 {
+    font-size: 14px;
+  }
+
+  .profile-thumb {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .fh5co-social-icons li {
+    margin: 0 5px;
+  }
+
+  .tech-section-container {
+    padding: 30px 10px;
+  }
+
+  .orbit-container {
+    transform: scale(0.5);
+  }
+
+  .shot-item {
+    width: 250px;
+  }
+
+  .timeline-panel {
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+
+  .timeline-body {
+    padding: 15px 0;
+  }
+
+  .timeline-body ul li {
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .timeline-heading h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .timeline-heading .company {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .work {
+    height: 150px;
+  }
+
+  .choose {
+    padding: 20px 10px;
+  }
+
+  .gif-container {
+    position: absolute !important;
+    right: 0px !important;
+    top: 20px !important;
+    width: 100px !important;
+    z-index: 5 !important;
+    display: none !important; /* Hide by default */
+  }
+
+  /* Show GIF only in About Me section on small mobile */
+  #fh5co-about .gif-container {
+    display: block !important;
+  }
+
+  .gif-container img {
+    max-width: 100%;
+  }
+
+  /* Music Player - Small Mobile */
+  .music-player {
+    width: 98% !important;
+    max-width: 280px !important;
+    padding: 6px 10px !important;
+  }
+
+  .music-controls {
+    gap: 6px !important;
+  }
+
+  .track-info {
+    margin: 0 4px !important;
+  }
+
+  .track-title {
+    font-size: 10px !important;
+    max-width: 100px !important;
+  }
+
+  .time-display {
+    gap: 4px !important;
+    font-size: 8px !important;
+  }
+
+  .time-display span {
+    font-size: 8px !important;
+    min-width: 20px !important;
+  }
+
+  .progress-bar {
+    width: 60px !important;
+  }
+
+  .rhythm-bars {
+    height: 10px !important;
+    margin-left: 4px !important;
+  }
+
+  .control-btn {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .control-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+/* Landscape Mobile Styles */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  #fh5co-header {
+    height: 100vh;
+    padding: 40px 0 20px;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  .profile-thumb {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  #fh5co-header h1 {
+    font-size: 24px;
+    margin: 10px 0 5px;
+  }
+
+  #fh5co-header h3 {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  #fh5co-header h1 {
+    font-size: 32px;
+  }
+
+  #fh5co-header h3 {
+    font-size: 18px;
+  }
+
+  .profile-thumb {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .tech-section-container {
+    padding: 60px 20px;
+  }
+
+  .orbit-container {
+    transform: scale(0.8);
+  }
+
+  .shot-item {
+    width: 320px;
+  }
+
+  #fh5co-work .col-md-3 {
+    width: 50%;
+    float: left;
+    margin-bottom: 30px;
+  }
 }

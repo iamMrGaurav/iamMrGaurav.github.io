@@ -4,55 +4,37 @@
 <head>
 
 	<link rel="icon" href="images/me-1.jpeg" type="image/gif" sizes="16x16">
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js" async></script>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Gaurav Poudel - Software Engineer</title>
-
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/ebe3841480.js" crossorigin="anonymous"></script>
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+	<meta name="description" content="Software Engineer with 2+ years experience in microservices, mobile apps, and cloud solutions. Expertise in Java, Golang, Node.js, Flutter, Kubernetes, Azure, AWS, and GCP.">
+	
+	<!-- Performance optimizations -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Kaushan+Script&display=swap" rel="stylesheet">
+	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+	<!-- Essential Styles -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<!-- Country Blocking Script -->
 	<style>
-		/* Hide page content initially to prevent flash */
+		/* Since geolocation is disabled, show content by default */
 		#page {
-			display: none;
+			display: block;
 		}
 		.fh5co-loader {
-			display: none;
+			display: block;
 		}
 		nav {
-			display: none;
+			display: block;
 		}
 	</style>
 	<script>
@@ -77,74 +59,97 @@
 		}
 		
 		// Function to check user's country and block if necessary
-		function checkCountryAndBlock() {
-			// Try to get country and IP from geolocation service
-			fetch('https://ipapi.co/json/')
-				.then(response => response.json())
-				.then(data => {
-					const userCountry = data.country_code;
-					const userIP = data.ip;
+		// function checkCountryAndBlock() {
+		// 	// Set a timeout to show content after 3 seconds to prevent indefinite buffering
+		// 	const timeoutId = setTimeout(() => {
+		// 		console.log('Geolocation timeout - showing content');
+		// 		showWebsiteContent();
+		// 	}, 3000);
+
+		// 	// Try to get country and IP from geolocation service
+		// 	fetch('https://ipapi.co/json/', {
+		// 		method: 'GET',
+		// 		headers: {
+		// 			'Accept': 'application/json'
+		// 		}
+		// 	})
+		// 		.then(response => {
+		// 			if (!response.ok) {
+		// 				throw new Error('Network response was not ok');
+		// 			}
+		// 			return response.json();
+		// 		})
+		// 		.then(data => {
+		// 			clearTimeout(timeoutId); // Clear the timeout since we got a response
+		// 			const userCountry = data.country_code;
+		// 			const userIP = data.ip;
 					
-					console.log(`User location: ${userCountry}, IP: ${userIP}`);
+		// 			console.log(`User location: ${userCountry}, IP: ${userIP}`);
 					
-					// Check if country is blocked AND IP is not whitelisted
-					if (BLOCKED_COUNTRIES.includes(userCountry) && !isWhitelistedIP(userIP)) {
-						// Show maintenance message
-						document.body.innerHTML = `
-							<div style="
-								display: flex;
-								justify-content: center;
-								align-items: center;
-								height: 100vh;
-								background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-								font-family: 'Arial', sans-serif;
-								color: white;
-								text-align: center;
-								padding: 20px;
-								margin: 0;
-							">
-								<div>
-									<h1 style="font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">✌🏽 Good Bye :( </h1>
-									<p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;"> Sorry, User on Holiday </p>
-									<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">  
-										<p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">कृपया पछि फेरि प्रयास गर्नुहोस्।</p>
-										<p style="margin: 10px 0 0 0; font-size: 0.8rem; opacity: 0.6;">Expected to be back online soon</p>
-									</div>
-									<div style="margin-top: 30px;">
-										<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite;"></div>
-										<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite 0.5s;"></div>
-										<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite 1s;"></div>
-									</div>
-								</div>
-							</div>
-							<style>
-								@keyframes pulse {
-									0%, 100% { opacity: 0.4; }
-									50% { opacity: 1; }
-								}
-							</style>
-						`;
+		// 			// Check if country is blocked AND IP is not whitelisted
+		// 			if (BLOCKED_COUNTRIES.includes(userCountry) && !isWhitelistedIP(userIP)) {
+		// 				// Show maintenance message
+		// 				document.body.innerHTML = `
+		// 					<div style="
+		// 						display: flex;
+		// 						justify-content: center;
+		// 						align-items: center;
+		// 						height: 100vh;
+		// 						background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		// 						font-family: 'Arial', sans-serif;
+		// 						color: white;
+		// 						text-align: center;
+		// 						padding: 20px;
+		// 						margin: 0;
+		// 					">
+		// 						<div>
+		// 							<h1 style="font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">✌🏽 Good Bye :( </h1>
+		// 							<p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;"> Sorry, User on Holiday </p>
+		// 							<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">  
+		// 								<p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">कृपया पछि फेरि प्रयास गर्नुहोस्।</p>
+		// 								<p style="margin: 10px 0 0 0; font-size: 0.8rem; opacity: 0.6;">Expected to be back online soon</p>
+		// 							</div>
+		// 							<div style="margin-top: 30px;">
+		// 								<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite;"></div>
+		// 								<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite 0.5s;"></div>
+		// 								<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite 1s;"></div>
+		// 							</div>
+		// 						</div>
+		// 					</div>
+		// 					<style>
+		// 						@keyframes pulse {
+		// 							0%, 100% { opacity: 0.4; }
+		// 							50% { opacity: 1; }
+		// 						}
+		// 					</style>
+		// 				`;
 						
-						console.log(`Access blocked for Nepal IP: ${userIP}`);
-					} else {
-						// Show the actual website content
-						showWebsiteContent();
-						if (BLOCKED_COUNTRIES.includes(userCountry) && isWhitelistedIP(userIP)) {
-							console.log(`Access granted for whitelisted IP: ${userIP} from ${userCountry}`);
-						} else {
-							console.log(`Access granted for ${userCountry} IP: ${userIP}`);
-						}
-					}
-				})
-				.catch(error => {
-					// If geolocation fails, allow access (fail gracefully)
-					console.log('Geolocation service failed, allowing access:', error);
-					showWebsiteContent();
-				});
-		}
+		// 				console.log(`Access blocked for Nepal IP: ${userIP}`);
+		// 			} else {
+		// 				// Show the actual website content
+		// 				showWebsiteContent();
+		// 				if (BLOCKED_COUNTRIES.includes(userCountry) && isWhitelistedIP(userIP)) {
+		// 					console.log(`Access granted for whitelisted IP: ${userIP} from ${userCountry}`);
+		// 				} else {
+		// 					console.log(`Access granted for ${userCountry} IP: ${userIP}`);
+		// 				}
+		// 			}
+		// 		})
+		// 		.catch(error => {
+		// 			clearTimeout(timeoutId); // Clear the timeout since we got an error
+		// 			// If geolocation fails, allow access (fail gracefully)
+		// 			console.log('Geolocation service failed, allowing access:', error);
+		// 			showWebsiteContent();
+		// 		});
+		// }
 		
-		// Run the check immediately (not waiting for DOMContentLoaded)
-		checkCountryAndBlock();
+		// // Run the check immediately (not waiting for DOMContentLoaded)
+		// checkCountryAndBlock();
+		
+		// Fallback: Show content when DOM is loaded if geolocation is disabled
+		document.addEventListener('DOMContentLoaded', function() {
+			showWebsiteContent();
+		});
 	</script>
 </head>
 
@@ -293,9 +298,9 @@
 				</div>
 			</div>
 		
-			 <!-- GIF Container positioned outside the grid -->
+			<!-- GIF Container positioned outside the grid -->
 			<div class="gif-container">
-				<img class="flipped-gif" src="images/hi-anime.gif" alt="Developer Animation">
+				<img class="flipped-gif" src="images/hi-anime.gif" alt="Developer Animation" loading="lazy">
 			</div>
 		</div>
 
@@ -419,28 +424,28 @@
 					<!-- Inner orbit items - Programming Languages -->
 					<div class="tech-item orbit-1-item item-1">
 						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/go/go-original.svg" alt="Go">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/go/go-original.svg" alt="Go" loading="lazy">
 						</div>
 						<h3>Go</h3>
 					</div>
 					
 					<div class="tech-item orbit-1-item item-2">
 						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/java/java-original.svg" alt="Java">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/java/java-original.svg" alt="Java" loading="lazy">
 						</div>
 						<h3>Java</h3>
 					</div>
 					
 					<div class="tech-item orbit-1-item item-3">
 						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/nodejs/nodejs-original.svg" alt="NodeJS">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/nodejs/nodejs-original.svg" alt="NodeJS" loading="lazy">
 						</div>
 						<h3>NodeJS</h3>
 					</div>
 					
 					<div class="tech-item orbit-1-item item-4">
 						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/flutter/flutter-original.svg" alt="Flutter">
+							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/flutter/flutter-original.svg" alt="Flutter" loading="lazy">
 						</div>
 						<h3>Flutter</h3>
 					</div>
@@ -1015,27 +1020,20 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
 	</div>
 
-	<!-- jQuery -->
+	<!-- Essential Scripts Only -->
 	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Easy PieChart -->
-	<script src="js/jquery.easypiechart.min.js"></script>
-	<!-- Google Map -->
-
-
-	<!-- Main -->
-	<script src="js/main.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+	<script src="js/jquery.waypoints.min.js" defer></script>
+	<script src="js/jquery.stellar.min.js" defer></script>
+	<script src="js/main.js" defer></script>
+	
+	<!-- Performance Monitoring -->
+	<script>
+		window.addEventListener('load', function() {
+			if ('performance' in window) {
+				const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+				console.log(`Page load time: ${loadTime}ms`);
+			}
+		});
+	</script>
 </body>
 </html>

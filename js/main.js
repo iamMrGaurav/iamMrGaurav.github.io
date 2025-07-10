@@ -483,14 +483,21 @@ document.addEventListener("DOMContentLoaded", function () {
             pauseAutoScroll();
             startX = e.touches[0].pageX - scrollContainer.offsetLeft;
             scrollLeft = scrollContainer.scrollLeft;
-        }, { passive: false });
+        }, { passive: true });
         
         scrollContainer.addEventListener('touchmove', (e) => {
             if (e.touches.length === 1) { // Single finger touch
-                e.preventDefault();
+                // Only prevent default for horizontal scrolling
                 const x = e.touches[0].pageX - scrollContainer.offsetLeft;
-                const walk = (x - startX) * 2;
-                scrollContainer.scrollLeft = scrollLeft - walk;
+                const y = e.touches[0].pageY;
+                const deltaX = Math.abs(x - startX);
+                const deltaY = Math.abs(y - (e.touches[0].pageY || 0));
+                
+                if (deltaX > deltaY) {
+                    e.preventDefault();
+                    const walk = (x - startX) * 4; // Increased from 2 to 4 for faster scrolling
+                    scrollContainer.scrollLeft = scrollLeft - walk;
+                }
             }
         }, { passive: false });
         
