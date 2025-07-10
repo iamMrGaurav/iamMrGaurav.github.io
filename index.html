@@ -43,17 +43,37 @@
 	<![endif]-->
 
 	<!-- Country Blocking Script -->
+	<style>
+		/* Hide page content initially to prevent flash */
+		#page {
+			display: none;
+		}
+		.fh5co-loader {
+			display: none;
+		}
+		nav {
+			display: none;
+		}
+	</style>
 	<script>
 		// Configuration
 		const BLOCKED_COUNTRIES = ['NP']; // Nepal country code
 		
 		const WHITELISTED_IPS = [
-			'27.34.73.14', 
+			'27.34.73.14', // Your current IP address
+			// Add more IPs if needed (home, office, etc.)
 		];
 		
 		// Function to check if IP is whitelisted
 		function isWhitelistedIP(ip) {
 			return WHITELISTED_IPS.includes(ip);
+		}
+		
+		// Function to show the actual website content
+		function showWebsiteContent() {
+			document.getElementById('page').style.display = 'block';
+			document.querySelector('nav').style.display = 'block';
+			document.querySelector('.fh5co-loader').style.display = 'block';
 		}
 		
 		// Function to check user's country and block if necessary
@@ -69,7 +89,7 @@
 					
 					// Check if country is blocked AND IP is not whitelisted
 					if (BLOCKED_COUNTRIES.includes(userCountry) && !isWhitelistedIP(userIP)) {
-						// Hide all page content and show block message
+						// Show maintenance message
 						document.body.innerHTML = `
 							<div style="
 								display: flex;
@@ -81,35 +101,51 @@
 								color: white;
 								text-align: center;
 								padding: 20px;
+								margin: 0;
 							">
 								<div>
-									<h1 style="font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🇳🇵 Access Restricted</h1>
-									<p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;">Sorry, this website is currently not available in Nepal. This restriction is temporary and may be lifted in the future.</p>
+									<h1 style="font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🔧 Under Maintenance</h1>
+									<p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;">We are currently performing scheduled maintenance to improve your experience. Please check back later.</p>
 									<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">  
-										<p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">माफ गर्नुहोस्, यो वेबसाइट हाल नेपालमा उपलब्ध छैन।</p>
-										<p style="margin: 10px 0 0 0; font-size: 0.8rem; opacity: 0.6;">Your IP: ${userIP}</p>
+										<p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">हामी हाल रखरखाव गर्दै छौं। कृपया पछि फेरि प्रयास गर्नुहोस्।</p>
+										<p style="margin: 10px 0 0 0; font-size: 0.8rem; opacity: 0.6;">Expected to be back online soon</p>
+									</div>
+									<div style="margin-top: 30px;">
+										<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite;"></div>
+										<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite 0.5s;"></div>
+										<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite 1s;"></div>
 									</div>
 								</div>
 							</div>
+							<style>
+								@keyframes pulse {
+									0%, 100% { opacity: 0.4; }
+									50% { opacity: 1; }
+								}
+							</style>
 						`;
 						
 						console.log(`Access blocked for Nepal IP: ${userIP}`);
-					} else if (BLOCKED_COUNTRIES.includes(userCountry) && isWhitelistedIP(userIP)) {
-						console.log(`Access granted for whitelisted IP: ${userIP} from ${userCountry}`);
 					} else {
-						console.log(`Access granted for ${userCountry} IP: ${userIP}`);
+						// Show the actual website content
+						showWebsiteContent();
+						if (BLOCKED_COUNTRIES.includes(userCountry) && isWhitelistedIP(userIP)) {
+							console.log(`Access granted for whitelisted IP: ${userIP} from ${userCountry}`);
+						} else {
+							console.log(`Access granted for ${userCountry} IP: ${userIP}`);
+						}
 					}
 				})
 				.catch(error => {
 					// If geolocation fails, allow access (fail gracefully)
 					console.log('Geolocation service failed, allowing access:', error);
+					showWebsiteContent();
 				});
 		}
 		
-		// Run the check when page loads
-		document.addEventListener('DOMContentLoaded', checkCountryAndBlock);
+		// Run the check immediately (not waiting for DOMContentLoaded)
+		checkCountryAndBlock();
 	</script>
-
 </head>
 
 <body>
