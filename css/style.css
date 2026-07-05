@@ -19,7 +19,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0a0a0a;
     --text: #ededed;
     --text-secondary: #a1a1a1;
@@ -29,6 +29,32 @@
     --border: #222;
     --icon-color: #a1a1a1;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --text: #ededed;
+  --text-secondary: #a1a1a1;
+  --text-muted: #666;
+  --link: #ededed;
+  --link-hover: #a1a1a1;
+  --border: #222;
+  --icon-color: #a1a1a1;
+}
+
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --text: #111;
+  --text-secondary: #666;
+  --text-muted: #999;
+  --link: #111;
+  --link-hover: #666;
+  --border: #eee;
+  --icon-color: #666;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -127,6 +153,13 @@ a:hover {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(29, 185, 84, 0.4);
 }
 
 .social-links {
@@ -164,6 +197,22 @@ a:hover {
 
 section {
   margin-bottom: 48px;
+  position: relative;
+}
+
+section::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  opacity: 0.5;
+}
+
+section:last-of-type::after {
+  display: none;
 }
 
 .section-title {
@@ -223,7 +272,7 @@ section {
 }
 
 .work-company {
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -319,9 +368,10 @@ section {
 .edu-logo {
   width: 40px;
   height: 40px;
-  object-fit: contain;
+  object-fit: cover;
   margin-right: 12px;
   flex-shrink: 0;
+  border-radius: 50%;
 }
 
 .edu-info {
@@ -354,12 +404,15 @@ section {
   background: var(--border);
   padding: 4px 12px;
   border-radius: 16px;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
 .skill:hover {
   background: var(--spotify-green);
   color: white;
+  box-shadow: 0 0 20px rgba(29, 185, 84, 0.5);
+  transform: translateY(-2px);
 }
 
 .cert-entry {
@@ -376,6 +429,9 @@ section {
   margin-right: 12px;
   flex-shrink: 0;
   object-fit: contain;
+  background: white;
+  padding: 6px;
+  border-radius: 8px;
 }
 
 .cert-info {
@@ -474,25 +530,15 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--border);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   transition: all 0.2s;
 }
 
 .footer-social:hover {
-  transform: translateY(-4px) scale(1.1);
-}
-
-.footer-social.github:hover { background: #333; }
-.footer-social.linkedin:hover { background: #0077B5; }
-.footer-social.twitter:hover { background: #000; }
-.footer-social.medium:hover { background: #000; }
-.footer-social.instagram:hover { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
-
-.footer-social:hover svg {
-  fill: white;
+  background: var(--border);
+  transform: translateY(-2px);
 }
 
 .footer-social svg {
@@ -500,6 +546,10 @@ footer {
   height: 20px;
   fill: var(--icon-color);
   transition: fill 0.2s;
+}
+
+.footer-social:hover svg {
+  fill: var(--text);
 }
 
 .footer-text {
@@ -521,6 +571,119 @@ footer {
   text-decoration: underline;
   text-underline-offset: 2px;
   margin-top: 8px;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg) scale(1.1);
+  border-color: var(--spotify-green);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text);
+  transition: fill 0.3s;
+}
+
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Photo hover effect */
+.photo {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.lightbox.active img {
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-close svg {
+  width: 32px;
+  height: 32px;
+  stroke: white;
+  transition: transform 0.2s;
+}
+
+.lightbox-close:hover svg {
+  transform: rotate(90deg);
 }
 
 @media (max-width: 480px) {

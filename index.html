@@ -9,6 +9,16 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+    <svg class="sun-icon" viewBox="0 0 24 24" style="display: none;">
+      <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+    </svg>
+    <svg class="moon-icon" viewBox="0 0 24 24">
+      <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+    </svg>
+  </button>
+
   <div class="container">
     <header class="header">
       <div class="header-content">
@@ -19,7 +29,7 @@
           <p class="tagline">Software Engineer II</p>
           <div class="vibe-check">
             <span class="status-dot"></span>
-            <span>available for collabs</span>
+            <span>happy to connect :)</span>
           </div>
         </div>
       </div>
@@ -43,7 +53,7 @@
       </a>
     </div>
 
-    <section>
+    <section class="fade-in">
       <h2 class="section-title"><span class="section-emoji">></span> About</h2>
       <p class="bio">
         Software Engineer with nearly 3 years of experience and a First Class Honors Degree in Computing from London Metropolitan University, with a demonstrated history of working in the internet industry across fast-paced startups in Bengaluru.
@@ -59,7 +69,7 @@
       </a>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="section-title"><span class="section-emoji">></span> Work</h2>
 
       <div class="work-entry">
@@ -174,7 +184,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="section-title"><span class="section-emoji">></span> Education</h2>
       <div class="edu-entry">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvqdchLeljz9Fs8tUOV0fEQcGETC5X4DD3kqX59eVbqQ&s=10" alt="London Metropolitan University" class="edu-logo">
@@ -186,7 +196,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="section-title"><span class="section-emoji">></span> Skills</h2>
       <div class="skills-list">
         <span class="skill">Go</span>
@@ -211,7 +221,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="section-title"><span class="section-emoji">></span> Certifications</h2>
       <div class="cert-entry">
         <img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="cert-logo">
@@ -223,7 +233,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="section-title"><span class="section-emoji">></span> Writing</h2>
       <a href="https://medium.com/@gauravpaudel2013/unlocking-the-power-of-cron-jobs-and-advisory-locks-in-go-a-comprehensive-guide-661376339ec5" target="_blank" class="writing-item">
         <div class="writing-title">Cron Jobs and Advisory Locks in Go</div>
@@ -243,7 +253,7 @@
       </a>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="section-title"><span class="section-emoji">></span> Shots</h2>
       <p class="bio" style="margin-bottom: 16px;">Capturing moments from my treks across the Himalayas.</p>
       <div class="photos-grid">
@@ -256,7 +266,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in">
       <h2 class="section-title"><span class="section-emoji">></span> Get in Touch</h2>
       <div class="contact-links">
         <a href="mailto:gauravpaudel2013@gmail.com" class="contact-link">gauravpaudel2013@gmail.com</a>
@@ -286,5 +296,17 @@
       </div>
     </footer>
   </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <img id="lightboxImg" src="" alt="Photo">
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
