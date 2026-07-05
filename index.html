@@ -1,1040 +1,339 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-	<link rel="icon" href="images/john.png" type="image/gif" sizes="16x16">
-	<script src="https://smtpjs.com/v3/smtp.js" async></script>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Gaurav Poudel - Software Engineer</title>
-	<meta name="description" content="Software Engineer with 2+ years experience in microservices, mobile apps, and cloud solutions. Expertise in Java, Golang, Node.js, Flutter, Kubernetes, Azure, AWS, and GCP.">
-	
-	<!-- Performance optimizations -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-	<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Kaushan+Script&display=swap" rel="stylesheet">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-	<!-- Essential Styles -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/style.css">
-
-	<!-- Country Blocking Script -->
-	<style>
-		/* Since geolocation is disabled, show content by default */
-		#page {
-			display: block;
-		}
-		.fh5co-loader {
-			display: block;
-		}
-		nav {
-			display: block;
-		}
-	</style>
-	<script>
-		// Configuration
-		const BLOCKED_COUNTRIES = ['NP']; // Nepal country code
-		
-		const WHITELISTED_IPS = [
-			'27.34.73.14', // Your current IP address
-			// Add more IPs if needed (home, office, etc.)
-		];
-		
-		// Function to check if IP is whitelisted
-		function isWhitelistedIP(ip) {
-			return WHITELISTED_IPS.includes(ip);
-		}
-		
-		// Function to show the actual website content
-		function showWebsiteContent() {
-			document.getElementById('page').style.display = 'block';
-			document.querySelector('nav').style.display = 'block';
-			document.querySelector('.fh5co-loader').style.display = 'block';
-		}
-		
-		// Function to check user's country and block if necessary
-		// function checkCountryAndBlock() {
-		// 	// Set a timeout to show content after 3 seconds to prevent indefinite buffering
-		// 	const timeoutId = setTimeout(() => {
-		// 		console.log('Geolocation timeout - showing content');
-		// 		showWebsiteContent();
-		// 	}, 3000);
-
-		// 	// Try to get country and IP from geolocation service
-		// 	fetch('https://ipapi.co/json/', {
-		// 		method: 'GET',
-		// 		headers: {
-		// 			'Accept': 'application/json'
-		// 		}
-		// 	})
-		// 		.then(response => {
-		// 			if (!response.ok) {
-		// 				throw new Error('Network response was not ok');
-		// 			}
-		// 			return response.json();
-		// 		})
-		// 		.then(data => {
-		// 			clearTimeout(timeoutId); // Clear the timeout since we got a response
-		// 			const userCountry = data.country_code;
-		// 			const userIP = data.ip;
-					
-		// 			console.log(`User location: ${userCountry}, IP: ${userIP}`);
-					
-		// 			// Check if country is blocked AND IP is not whitelisted
-		// 			if (BLOCKED_COUNTRIES.includes(userCountry) && !isWhitelistedIP(userIP)) {
-		// 				// Show maintenance message
-		// 				document.body.innerHTML = `
-		// 					<div style="
-		// 						display: flex;
-		// 						justify-content: center;
-		// 						align-items: center;
-		// 						height: 100vh;
-		// 						background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-		// 						font-family: 'Arial', sans-serif;
-		// 						color: white;
-		// 						text-align: center;
-		// 						padding: 20px;
-		// 						margin: 0;
-		// 					">
-		// 						<div>
-		// 							<h1 style="font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">✌🏽 Good Bye :( </h1>
-		// 							<p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;"> Sorry, User on Holiday </p>
-		// 							<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">  
-		// 								<p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">कृपया पछि फेरि प्रयास गर्नुहोस्।</p>
-		// 								<p style="margin: 10px 0 0 0; font-size: 0.8rem; opacity: 0.6;">Expected to be back online soon</p>
-		// 							</div>
-		// 							<div style="margin-top: 30px;">
-		// 								<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite;"></div>
-		// 								<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite 0.5s;"></div>
-		// 								<div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.7); margin: 0 4px; animation: pulse 1.5s infinite 1s;"></div>
-		// 							</div>
-		// 						</div>
-		// 					</div>
-		// 					<style>
-		// 						@keyframes pulse {
-		// 							0%, 100% { opacity: 0.4; }
-		// 							50% { opacity: 1; }
-		// 						}
-		// 					</style>
-		// 				`;
-						
-		// 				console.log(`Access blocked for Nepal IP: ${userIP}`);
-		// 			} else {
-		// 				// Show the actual website content
-		// 				showWebsiteContent();
-		// 				if (BLOCKED_COUNTRIES.includes(userCountry) && isWhitelistedIP(userIP)) {
-		// 					console.log(`Access granted for whitelisted IP: ${userIP} from ${userCountry}`);
-		// 				} else {
-		// 					console.log(`Access granted for ${userCountry} IP: ${userIP}`);
-		// 				}
-		// 			}
-		// 		})
-		// 		.catch(error => {
-		// 			clearTimeout(timeoutId); // Clear the timeout since we got an error
-		// 			// If geolocation fails, allow access (fail gracefully)
-		// 			console.log('Geolocation service failed, allowing access:', error);
-		// 			showWebsiteContent();
-		// 		});
-		// }
-		
-		// // Run the check immediately (not waiting for DOMContentLoaded)
-		// checkCountryAndBlock();
-		
-		// Fallback: Show content when DOM is loaded if geolocation is disabled
-		document.addEventListener('DOMContentLoaded', function() {
-			showWebsiteContent();
-		});
-	</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaurav Poudel</title>
+  <meta name="description" content="Software Engineer with nearly 3 years experience in microservices, mobile apps, and cloud solutions.">
+  <link rel="icon" href="images/john.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-	<div class="fh5co-loader"></div>
-	<nav>
-		<div class="items">
-			<ul>
-				<li>
-					<a href="#page">Home</a>
-				</li>
-				<li>
-					<a href="#fh5co-resume"> Resume</a>
-				</li>
-				<li>
-					<a href="#stack">
-						Stack
-					</a>
-				</li>
-				<li>
-					<a href="#fh5co-work">
-						Work
-					</a>
-				</li>
-				<li>
-					<a href="#fh5co-blog">
-						Shots
-					</a>
-				</li>
-				<li>
-					<a href="#fh5co-about">
-						About
-					</a>
-				</li>
-				<li>
-					<a href="#fh5co-consult">
-						Contact
-					</a>
-				</li>
-			</ul>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <img src="images/john.png" alt="Gaurav Poudel" class="profile-img">
+        <div class="header-text">
+          <p class="greeting">"You are only entitled to the action, never to its fruits.” ― Bhagavad Gita</p>
+          <h1 class="name">Gaurav Poudel <span class="initials">GP</span></h1>
+          <p class="tagline">Software Engineer II</p>
+          <div class="vibe-check">
+            <span class="status-dot"></span>
+            <span>available for collabs</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-		</div>
-	</nav>
-	<div id="page">
-		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<div class="display-t js-fullheight">
-							<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-								<div class="profile-thumb" style="background: url(images/john.png);"></div>
-								<h1><span>Gaurav Poudel</span></h1>
-								<h3><span>Software Engineer / Photography Aficionado</span></h3>
-								<p>
-									<ul class="fh5co-social-icons">
-										<li><a href="https://github.com/iamMrGaurav" target="_blank"><i class="icon-github2"></i></a></li>
-										<li><a href="https://x.com/we_crood" target="_blank"><i class="fab fa-twitter"></i></a></li>
-										<li><a href="https://www.linkedin.com/in/iamgauravpoudel/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-										<li><a href="https://medium.com/@gauravpaudel2013" target="_blank"><i class="fab fa-medium"></i></a></li> 
-										<li><a href="https://www.instagram.com/__we_crood__/" target="_blank"><i class="icon-instagram2"></i></a></li>
-									</ul>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		
-			<!-- Music Player -->
-			<!-- Music Player -->
-			<div class="music-player">
-				<audio id="backgroundMusic" loop>
-					<source src="audio/blue.mp3" type="audio/mpeg">
-					Your browser does not support the audio element.
-				</audio>
-				<div class="music-controls">
-					<button id="playPauseBtn" class="control-btn">
-						<svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-							<path fill="currentColor" d="M8 5v14l11-7z"/>
-						</svg>
-						<svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="display: none;">
-							<path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-						</svg>
-					</button>
-					<button id="muteBtn" class="control-btn">
-						<svg class="volume-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-							<path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-						</svg>
-						<svg class="mute-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="display: none;">
-							<path fill="currentColor" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-						</svg>
-					</button>
-					<div class="track-info">
-						<span class="track-title">Yung Kai - Blue</span>
-						<div class="time-display">
-							<span id="currentTime">0:00</span>
-							<div class="progress-bar">
-								<div class="progress"></div>
-								<div class="progress-handle"></div>
-							</div>
-							<span id="duration">0:00</span>
-						</div>
-					</div>
-					<div class="rhythm-bars">
-						<span class="bar"></span>
-						<span class="bar"></span>
-						<span class="bar"></span>
-						<span class="bar"></span>
-						<span class="bar"></span>
-					</div>
-				</div>
-			</div>
-		
-			<style>
-			#fh5co-header {
-				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(images/cover.jpeg);
-				background-size: cover;
-				background-repeat: no-repeat;
-				position: relative;
-				color: #fff;
-				font-family: 'Arial', sans-serif;
-				height: 100vh;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			</style>
-		</header>
-		
-		<div id="fh5co-about" class="animate-box">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>About Me</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-8">
-						<h2 style="color: black;">Moshi Moshi!</h2>
-						<p>
-							Result-oriented Software Engineer with over 2 years of working experience and a First Class Honors Degree in Computing from London Metropolitan University, focused on designing and developing scalable microservices architectures, mobile applications, and cloud-based solutions. Has worked with technologies including Java, Golang, Node.js, and Flutter, and has experience in Kubernetes, Azure, Prometheus, Terraform, HashiCorp Vault, Jenkins, Grafana, Argo CD, AWS, and GCP. Adept at navigating the software development life cycle, delivering efficient, user-friendly applications, and bringing strong problem-solving skills with a commitment to high-quality project outcomes.
-						</p>
-						
-					</div>
-				</div>
-			</div>
-		
-			<!-- GIF Container positioned outside the grid -->
-			<div class="gif-container">
-				<img class="flipped-gif" src="images/hi-anime.gif" alt="Developer Animation" loading="lazy">
-			</div>
-		</div>
+    <div class="social-links">
+      <a href="https://github.com/iamMrGaurav" target="_blank" class="social-link" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/iamgauravpoudel" target="_blank" class="social-link" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://x.com/we_crood" target="_blank" class="social-link" title="X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://medium.com/@gauravpaudel2013" target="_blank" class="social-link" title="Medium">
+        <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+      </a>
+      <a href="https://instagram.com/__we_crood__" target="_blank" class="social-link" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+      </a>
+    </div>
 
-		<div id="fh5co-resume" class="fh5co-bg-color">
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>My Resume</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0">
-						<ul class="timeline">
-							<li class="timeline-heading text-center animate-box">
-								<div><h3>Work Experience</h3></div>
-							</li>
-							<!-- Left Side -->
-							<li class="animate-box timeline-unverted">
-								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">RoxStar Studioz</h3>
-										<span class="company">Software Development Engineer | Feb 2025 - Present | Bengaluru, Karnataka, India</span>
-									</div>
-									<div class="timeline-body">
-										<p>
-											<ul style="text-align: left; padding-left: 20px; margin: 0;">
-												<li>Migrated legacy PHP codebase to Node.js with Socket.IO and Redis Cluster for improved performance and scalability.</li>
-												<li>Configured end-to-end Ingress in AKS using Web App Routing and Azure KeyVault for automated TLS certificate management.</li>
-												<li>Built an automated CI/CD pipeline with Azure and GitHub webhooks for seamless AKS deployments.</li>
-											</ul>
-										</p>
-									</div>
-								</div>
-							</li>
-							<!-- Right Side -->
-							<li class="animate-box timeline-inverted">
-								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">Sariska.io</h3>
-										<span class="company">Software Development Engineer | Mar 2023 - Feb 2025 | Bengaluru, Karnataka, India</span>
-									</div>
-									<div class="timeline-body">
-										<p>
-											<ul>
-												<li>Integrated HashiCorp Vault into Kubernetes using Helm and ArgoCD with GCS backend via Terraform for secure data management.</li>
-												<li>Migrated AWS RDS to GCP using Terraform and executed queries for seamless data transfer.</li>
-												<li>Developed a Golang microservice for usage calculation across video, messaging, and streaming, with PostgreSQL integration.</li>
-												<li>Built and launched multiple Flutter Android apps, including a video conferencing SDK, on Google Play Store.</li>
-												<li>Exposed Prometheus metrics and Grafana dashboards (90th/99th percentile latency, status codes, request counts).</li>
-												<li>Reduced node wait time by 2-3 minutes via pod priority and preemption in Kubernetes for low-latency user experience.</li>
-												<li>Implemented version-specific image tags in Jenkins ECR pipeline, replacing "latest" tags.</li>
-												<li>Performed load testing with 10,000+ users and built a Golang cron job/locker for daily data sync.</li>
-											</ul>
-										</p>
-									</div>
-								</div>
-							</li>
-							<!-- Left Side -->
-							<li class="animate-box timeline-unverted">
-								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">Thulo Technology</h3>
-										<span class="company">Flutter Developer (Intern) | Nov 2021 - Jan 2022 | Pokhara, Nepal</span>
-									</div>
-									<div class="timeline-body">
-										<p>
-											<ul style="text-align: left; padding-left: 20px; margin: 0;">
-												<li>Contributed and designed an examination app that has gained 50K+ downloads till now.</li>  
-												<li>Authored a blog focusing on HTTP packages for Flutter.</li>  
-												<li>Designed and developed an HTML editor application.</li>  
-												<li>Generated required Markdown (MD) files for applications.</li>  
-												<li>Designed and implemented app UI for a book reading application and a Python running script application.</li>  
-											</ul>
-										</p>
-									</div>
-								</div>
-							</li>
-							<br>
-							<li class="timeline-heading text-center animate-box">
-								<div style="color: black;"><h3>Education</h3></div>
-							</li>
-							<!-- Right Side -->
-							<li class="animate-box timeline-inverted">
-								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title"> London Metropolitan University, Informatics College Pokhara</h3>
-										<span class="company">B.Sc. (Hons) in Computing | 2019 - 2022</span>
-									</div>
-									<div class="timeline-body">
-										<p>Graduated with First Class Honors Degree 🏅</p>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+    <section>
+      <h2 class="section-title"><span class="section-emoji">></span> About</h2>
+      <p class="bio">
+        Software Engineer with nearly 3 years of experience and a First Class Honors Degree in Computing from London Metropolitan University, with a demonstrated history of working in the internet industry across fast-paced startups in Bengaluru.
+      </p>
+      <p class="bio">
+        Skilled in Java, Golang, Node.js, Flutter, Spring Boot, Microservices Architecture, WebSocket, WebRTC, REST APIs, PostgreSQL, MySQL, MongoDB, and Redis, with strong expertise in Kubernetes, Docker, Terraform, Helm, AWS, GCP, Azure, Argo CD, Prometheus, Grafana, and HashiCorp Vault, and a consistent commitment to building scalable, production-grade software across the full development life cycle.
+      </p>
+      <a href="resume.pdf" class="resume-link" target="_blank">
+        <span>View Resume</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </a>
+    </section>
 
-		<div id = "stack" class="tech-section-row">
-			<div class="tech-section-container">
-				<div class="heading">
-					<h2>Tech Stacks</h2>
-				</div>
-				
-				<div class="orbit-container">
-					<!-- Center element -->
-					<div class="center">
-						<div class="center-title">SWE</div>
-					</div>
-					
-					<!-- Orbits -->
-					<div class="orbit orbit-1"></div>
-					<div class="orbit orbit-2"></div>
-					<div class="orbit orbit-3"></div>
-					
-					<!-- Inner orbit items - Programming Languages -->
-					<div class="tech-item orbit-1-item item-1">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/go/go-original.svg" alt="Go" loading="lazy">
-						</div>
-						<h3>Go</h3>
-					</div>
-					
-					<div class="tech-item orbit-1-item item-2">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/java/java-original.svg" alt="Java" loading="lazy">
-						</div>
-						<h3>Java</h3>
-					</div>
-					
-					<div class="tech-item orbit-1-item item-3">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/nodejs/nodejs-original.svg" alt="NodeJS" loading="lazy">
-						</div>
-						<h3>NodeJS</h3>
-					</div>
-					
-					<div class="tech-item orbit-1-item item-4">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/flutter/flutter-original.svg" alt="Flutter" loading="lazy">
-						</div>
-						<h3>Flutter</h3>
-					</div>
-					
-					<!-- Middle orbit items - DevOps & Monitoring -->
-					<div class="tech-item orbit-2-item item-5">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/kubernetes/kubernetes-plain.svg" alt="K8s">
-						</div>
-						<h3>K8s</h3>
-					</div>
-					
-					<div class="tech-item orbit-2-item item-6">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/terraform/terraform-original.svg" alt="Terraform">
-						</div>
-						<h3>Terraform</h3>
-					</div>
-					
-					<div class="tech-item orbit-2-item item-7">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/grafana/grafana-original.svg" alt="Grafana">
-						</div>
-						<h3>Grafana</h3>
-					</div>
-					
-					<div class="tech-item orbit-2-item item-8">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/prometheus/prometheus-original.svg" alt="Prometheus">
-						</div>
-						<h3>Prometheus</h3>
-					</div>
-					
-					<div class="tech-item orbit-2-item item-9">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/jenkins/jenkins-original.svg" alt="Jenkins">
-						</div>
-						<h3>Jenkins</h3>
-					</div>
-					
-					<div class="tech-item orbit-2-item item-10">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/argocd/argocd-original.svg" alt="Argo CD">
-						</div>
-						<h3>Argo CD</h3>
-					</div>
-					
-					<div class="tech-item orbit-2-item item-11">
-						<div class="icon">
-							<img src="https://helm.sh/img/helm.svg" alt="Helm">
-						</div>
-						<h3>Helm</h3>
-					</div>
-					
-					<!-- Outer orbit items - Cloud & Databases -->
-					<div class="tech-item orbit-3-item item-12">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-						</div>
-						<h3>PostgreSQL</h3>
-					</div>
-					
-					<div class="tech-item orbit-3-item item-13">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/redis/redis-original.svg" alt="Redis">
-						</div>
-						<h3>Redis</h3>
-					</div>
-					
-					<div class="tech-item orbit-3-item item-14">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
-						</div>
-						<h3>AWS</h3>
-					</div>
-					
-					<div class="tech-item orbit-3-item item-15">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/googlecloud/googlecloud-original.svg" alt="GCP">
-						</div>
-						<h3>GCP</h3>
-					</div>
-					
-					<div class="tech-item orbit-3-item item-16">
-						<div class="icon">
-							<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/azure/azure-original.svg" alt="Azure">
-						</div>
-						<h3>Azure</h3>
-					</div>
-				</div>
-			</div>
-		</div>
+    <section>
+      <h2 class="section-title"><span class="section-emoji">></span> Work</h2>
 
-		<div id="fh5co-work" class="fh5co-bg-dark">
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Work & Blogs</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://medium.com/@gauravpaudel2013/unlocking-the-power-of-cron-jobs-and-advisory-locks-in-go-a-comprehensive-guide-661376339ec5" target="_blank" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1382/format:webp/1*q-KV-E0yChI85DouGFx8tw.png);">
-							<div class="desc">
-								<h3>Add Cron job and cron locker using go</h3>
-								<span></span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://medium.com/@gauravpaudel2013/unleashing-kubernetes-efficiency-a-tale-of-saving-2-3-minutes-of-node-waiting-time-c5dd0963fcd0" target="_blank" class="work" style="background-image: url(https://avatars.githubusercontent.com/u/13629408?s=200&v=4);">
-							<div class="desc">
-								<h3>Kubernetes Efficiency: Saving Minutes of Node Waiting Time</h3>
-								<span></span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://medium.com/@gauravpaudel2013/integrate-hashi-corp-vault-with-gcs-backend-using-terraform-and-helm-in-k8s-cluster-f45c13b4c658" target="_blank" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1400/format:webp/1*kNZ2NgpOuR2Gi4bNAoYaOA.jpeg);">
-							<div class="desc">
-								<h3>Integrate Hashi Corp Vault, with GCS Backend Using Terraform and Helm in the k8s cluster.</h3>
-								<span></span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://medium.com/@gauravpaudel2013/setup-up-ingress-in-kubernetes-with-azure-app-routing-and-securing-wildcard-domains-using-certbot-b1f57b70a2a4" target="_blank" class="work" style="background-image: url(https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QvbQTmFpgFi91g22z7599A.jpeg);">
-							<div class="desc">
-								<h3>Setup Up Ingress in Kubernetes with Azure App Routing and Securing Wildcard Domains Using Certbot TLS certificates</h3>
-								<span></span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-e8149d5f-b85b-4d28-8d6f-9acdedb85582.pdf" target="_blank" class="work"
-							style="background-image: url(https://media.licdn.com/dms/image/v2/C4E0BAQFUctPVNz4kJQ/company-logo_200_200/company-logo_200_200/0/1660624612113/kodekloud_logo?e=1750291200&v=beta&t=bf8_KQkzUoHsDqDroJUJdrFww3gFkjC7gXIf4kgNa6Q);">
-							<div class="desc">
-								<h3>
-									Kubernetes Certified Application Developer (CKAD) with Tests</h3>
-								<span>Udemy Certificate</span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://play.google.com/store/apps/details?id=drivingexamnepal.app" target="_blank" class="work"
-							style="background-image: url(images/portfolio-6.jpg);">
-							<div class="desc">
-								<h3>Driving License examination</h3>
-								<span>(Thulo Technology)</span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="#" class="work" style="background-image: url(images/portfolio-7.png);">
-							<div class="desc">
-								<h3>Final Year Project</h3>
-								<span>Find My IT Job.(NodeJs/Express JS/Flutter/firebase)</span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://github.com/iamMrGaurav/SpringBootCRUD_Web" target="_blank" class="work"
-							style="background-image: url(https://avatars.githubusercontent.com/u/64460040?v=4);">
-							<div class="desc">
-								<h3>Spring boot CRUD WEB</h3>
-								<span>CRUD Web</span>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="work-entry">
+        <div class="work-header" onclick="this.parentElement.classList.toggle('expanded')">
+          <img src="images/stan.jpeg" alt="STAN" class="company-logo">
+          <div class="work-info">
+            <div class="work-company">
+              <a href="https://getstan.app/" target="_blank">STAN</a>
+              <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </div>
+            <div class="work-role">Software Engineer · Bengaluru, India</div>
+          </div>
+          <div class="work-date">Nov 2025 – Jun 2026</div>
+          <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+        <div class="work-details">
+          <ul>
+            <li>Implemented an AutoPay system using Cashfree in Golang, increasing repeat payment rate from 30% to ~80% and generating ₹2.4L–₹4.5L in additional monthly revenue.</li>
+            <li>Built atomic game matchmaking algorithm with priority scoring, improving player retention by 25%.</li>
+            <li>Built a Go-based notification scheduler that stores cron schedules in the database, automating time-based notifications and eliminating manual triggering.</li>
+          </ul>
+          <div class="tech-stack"><strong>Tech:</strong> Golang, MySQL, RabbitMQ, MongoDB, Redis, AWS</div>
+        </div>
+      </div>
 
-		<div id="fh5co-blog">
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Shots</h2>
-						<p>I've had the privilege of exploring some of the most breathtaking corners of the Himalayas.
-							During these journeys, I managed to capture the mesmerizing moments that unfolded before me.
-						</p>
-					</div>
-				</div>
-				
-				<!-- Scrollable row container -->
-				<div class="shots-scroll-container">
-					<div class="shots-scroll-wrapper">
-						<!-- Shot 1 -->
-						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/portfolio-1.jpg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Jun. 17th 2019</span>
-									<h3><a>Shot in the lap of the Himalayas.</a></h3>
-									<p>While trekking through the Mardi Himal region, I came across a remarkable sight—a unicorn, or so it seemed at first glance. But, in reality, it turned out to be an enchanting horse.</p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Shot 2 -->
-						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/ocean_stand.jpg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Jun. 17th 2024</span>
-									<h3><a>Ocean Sunset</a></h3>
-									<p>I was so into this absolute beautiful ocean sunset !! </p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Shot 3 -->
-<!-- 						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/me.jpeg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Dec. 15th 2024</span>
-									<h3><a >Away from chaos</a></h3>
-									<p>#Vacation</p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div> -->
-						
-						<!-- Add more shots here as needed -->
-						<!-- Shot 4 (Example) -->
-						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a  class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/himal.jpeg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Apr. 15th 2024</span>
-									<h3><a >Mountain Sunrise.</a></h3>
-									<p>The golden rays of dawn breaking over the snow-capped peaks created a moment of pure tranquility and awe.</p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+      <div class="work-entry">
+        <div class="work-header" onclick="this.parentElement.classList.toggle('expanded')">
+          <img src="images/roxstart.jpeg" alt="RoxStar Studioz" class="company-logo">
+          <div class="work-info">
+            <div class="work-company">
+              <a href="https://www.linkedin.com/company/roxstar-app/posts/?feedView=all" target="_blank">RoxStar Studioz</a>
+              <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </div>
+            <div class="work-role">Software Engineer · Bengaluru, India</div>
+          </div>
+          <div class="work-date">Feb 2025 – Sept 2025</div>
+          <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+        <div class="work-details">
+          <ul>
+            <li>Improved WebSocket response time by 40% by migrating legacy PHP codebase to Node.js with Socket.IO and Redis.</li>
+            <li>Built CI/CD pipeline with Azure and GitHub webhooks for AKS, cutting deployment time from 10 to 2 minutes on average, boosting efficiency by 80%.</li>
+            <li>Set up end-to-end Ingress in AKS cluster, using web app routing and integrating Azure Key Vault for TLS certificates.</li>
+          </ul>
+          <div class="tech-stack"><strong>Tech:</strong> Node.js, Kubernetes, Azure, Redis, Microservices</div>
+        </div>
+      </div>
 
-<!-- 						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a  class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/to-ocean.jpeg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Dec. 3 2022</span>
-									<h3><a>Ocean is pretty unreal!!</a></h3>
-									<p></p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div> -->
+      <div class="work-entry">
+        <div class="work-header" onclick="this.parentElement.classList.toggle('expanded')">
+          <img src="images/sariska_logo.jpeg" alt="Sariska.io" class="company-logo">
+          <div class="work-info">
+            <div class="work-company">
+              <a href="https://www.linkedin.com/company/sariska/posts/?feedView=all" target="_blank">Sariska.io</a>
+              <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </div>
+            <div class="work-role">Software Engineer · Remote · Bengaluru, India</div>
+          </div>
+          <div class="work-date">Aug 2023 – Feb 2025</div>
+          <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+        <div class="work-details">
+          <ul>
+            <li>Built pricing service microservice in Golang calculating usage for video conferencing, messaging, co-browsing, live streaming, and recording within 1.5 months. Exposed API Prometheus metrics and created Grafana dashboard for monitoring.</li>
+            <li>Integrated HashiCorp Vault into a Kubernetes cluster using Helm, ArgoCD, and Terraform with GCS backend, eliminating 100% of hardcoded secrets across microservices. <a href="https://medium.com/@gauravpaudel2013/integrate-hashi-corp-vault-with-gcs-backend-using-terraform-and-helm-in-k8s-cluster-f45c13b4c658" target="_blank">Read more</a></li>
+            <li>Reduced node waiting time by 2-3 minutes, resulting in improved latency for end-users, through introducing pod priority and preemption in Kubernetes configuration. <a href="https://medium.com/@gauravpaudel2013/unleashing-kubernetes-efficiency-a-tale-of-saving-2-3-minutes-of-node-waiting-time-c5dd0963fcd0" target="_blank">Read more</a></li>
+            <li>Migrated RDS instances from AWS to GCP using Terraform for automated infrastructure provisioning and seamless data migration, cutting setup time from 1 hour to under 1 minute.</li>
+            <li>Delivered Android applications in Flutter demonstrating comprehensive SDK integration and real-world implementation.</li>
+            <li>Deployed ArgoCD for Continuous Deployment in Kubernetes, reducing deployment errors by 60% and streamlining application delivery.</li>
+          </ul>
+          <div class="tech-stack"><strong>Tech:</strong> Golang, Java, Node.js, Flutter, Kubernetes, PostgreSQL, AWS, GCP, ArgoCD, Helm</div>
+        </div>
+      </div>
 
-<!-- 						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/personal.jpg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Sep 27. 2024</span>
-									<h3><a >Its a Funny world</a></h3>
-									<p>Watch out !! Watch out !! Snakes Everywhere</p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div> -->
+      <div class="work-entry">
+        <div class="work-header" onclick="this.parentElement.classList.toggle('expanded')">
+          <img src="images/thulo_technology.jpeg" alt="Thulo Technology" class="company-logo">
+          <div class="work-info">
+            <div class="work-company">
+              <a href="https://thulotechnology.com/" target="_blank">Thulo Technology</a>
+              <svg class="external-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </div>
+            <div class="work-role">Flutter Developer · Intern · Pokhara, Nepal</div>
+          </div>
+          <div class="work-date">Nov 2021 – Jan 2022</div>
+          <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+        <div class="work-details">
+          <ul>
+            <li>Created HTML editor application UI with intuitive user experience.</li>
+            <li>Developed examination app achieving 100K+ downloads on Play Store. <a href="https://play.google.com/store/apps/details?id=drivingexamnepal.app" target="_blank">View on Play Store</a></li>
+            <li>Designed responsive app interfaces for book reading platform and Python script execution tool.</li>
+          </ul>
+          <div class="tech-stack"><strong>Tech:</strong> Flutter, WordPress, Adobe XD</div>
+        </div>
+      </div>
+    </section>
 
-<!-- 						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/left-cap.webp?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Dec 3. 2022</span>
-									<h3><a>:)</a></h3>
-									<p></p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div> -->
+    <section>
+      <h2 class="section-title"><span class="section-emoji">></span> Education</h2>
+      <div class="edu-entry">
+        <img src="images/london_met.svg" alt="London Metropolitan University" class="edu-logo">
+        <div class="edu-info">
+          <div class="edu-school">London Metropolitan University</div>
+          <div class="edu-degree">B.Sc. (Hons) in Computing</div>
+          <div class="edu-meta">2019 – 2022 · First Class Honors Degree Awarded</div>
+        </div>
+      </div>
+    </section>
 
-						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/above-cloud.jpg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Mar. 5th 2021</span>
-									<h3><a>Above the Cloud</a></h3>
-									<p>Path to Heaven!!</p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+    <section>
+      <h2 class="section-title"><span class="section-emoji">></span> Skills</h2>
+      <div class="skills-list">
+        <span class="skill">Go</span>
+        <span class="skill">Java</span>
+        <span class="skill">Node.js</span>
+        <span class="skill">Flutter</span>
+        <span class="skill">TypeScript</span>
+        <span class="skill">Kubernetes</span>
+        <span class="skill">Terraform</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">MySQL</span>
+        <span class="skill">MongoDB</span>
+        <span class="skill">Redis</span>
+        <span class="skill">RabbitMQ</span>
+        <span class="skill">AWS</span>
+        <span class="skill">GCP</span>
+        <span class="skill">Azure</span>
+        <span class="skill">Prometheus</span>
+        <span class="skill">Grafana</span>
+        <span class="skill">Jenkins</span>
+        <span class="skill">ArgoCD</span>
+      </div>
+    </section>
 
-						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/city.jpeg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">Oct 20. 2024</span>
-									<h3><a>Night Out!!</a></h3>
-									<p></p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-<!-- 						<div class="shot-item">
-							<div class="fh5co-blog animate-box">
-								<a class="blog-bg" style="background-image: url(https://github.com/iamMrGaurav/iamMrGaurav.github.io/blob/main/images/explore.jpg?raw=true);"></a>
-								<div class="blog-text">
-									<span class="posted_on">2024</span>
-									<h3><a></a></h3>
-									<p></p>
-									<ul class="stuff">
-										<li>
-											<i class="far fa-heart heart-icon" data-count="0"></i>
-											<span class="like-count">0</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div> -->
-						
-					</div>
-				</div>
-				
-				<!-- Navigation arrows -->
-				<div class="shots-navigation">
-					<button class="nav-arrow prev-arrow">
-						<i class="fa fa-chevron-left"></i>
-					</button>
-					<button class="nav-arrow next-arrow">
-						<i class="fa fa-chevron-right"></i>
-					</button>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div id="fh5co-started" class="fh5co-bg-dark">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Hire Me!</h2>
-						<p>Wanna Collaborate :)
-						</p>
-						<p><a href="#fh5co-consult" class="btn btn-default btn-lg">Contact Me !!</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
+    <section>
+      <h2 class="section-title"><span class="section-emoji">></span> Certifications</h2>
+      <div class="cert-entry">
+        <img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="cert-logo">
+        <div class="cert-info">
+          <div class="cert-title"><a href="https://www.udemy.com/certificate/UC-e8149d5f-b85b-4d28-8d6f-9acdedb85582/" target="_blank">Kubernetes Certified Application Developer (CKAD)</a></div>
+          <div class="cert-desc">KodeKloud · Udemy</div>
+          <div class="cert-meta">Certified</div>
+        </div>
+      </div>
+    </section>
 
-		<div id="fh5co-consult">
-			<div class="video fh5co-video" style="background-image: url(images/cover_bg_1.png); color: white;">
-				<div class="overlay"></div>
-			</div>
-			<div class="choose animate-box">
-				<h2>Contact</h2>
-				<form id="contactForm" onsubmit="sendEmail(event)">
-					<div class="row form-group">
-						<div class="col-md-6">
-							<input type="text" id="fname" class="form-control" placeholder="Your firstname">
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-6">
-							<input type="text" id="lname" class="form-control" placeholder="Your lastname">
-						</div>
-					</div>
-		
-					<div class="row form-group">
-						<div class="col-md-12">
-							<input type="text" id="email" class="form-control" placeholder="Your email address">
-						</div>
-					</div>
-		
-					<div class="row form-group">
-						<div class="col-md-12">
-							<input type="text" id="subject" class="form-control"
-								placeholder="Your subject of this message">
-						</div>
-					</div>
-		
-					<div class="row form-group">
-						<div class="col-md-12">
-							<textarea name="message" id="message" cols="30" rows="10" class="form-control"
-								placeholder="Your Message Here :)"></textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Send Message" class="btn btn-primary" id="submitButton">
-					</div>
-				</form>
-			</div>
-		
-			<!-- Loading Popup Overlay -->
-			<div id="loaderOverlay" class="popup-overlay">
-				<div class="popup-content">
-					<div class="spinner"></div>
-					<p>Sending your message...</p>
-				</div>
-			</div>
-		
-			<!-- Success Popup Overlay -->
-			<div id="successOverlay" class="popup-overlay">
-				<div class="popup-content success-popup">
-					<div class="success-icon">✓</div>
-					<p>Email sent successfully!</p>
-					<button onclick="hideSuccessOverlay()" class="btn-ok">OK</button>
-				</div>
-			</div>
-		
-			<!-- Error Popup Overlay -->
-			<div id="errorOverlay" class="popup-overlay">
-				<div class="popup-content error-popup">
-					<div class="error-icon">✕</div>
-					<p>An error occurred while sending the email. Please try again later.</p>
-					<button onclick="hideErrorOverlay()" class="btn-ok">OK</button>
-				</div>
-			</div>
-			<style>
-				.spinner {
-					border: 4px solid rgba(255, 255, 255, 0.3);
-					width: 40px;
-					height: 40px;
-					border-radius: 50%;
-					border-top-color: #ffffff;
-					display: inline-block;
-					animation: spin 1s linear infinite;
-					margin-bottom: 15px;
-				}
-			
-				@keyframes spin {
-					0% { transform: rotate(0deg); }
-					100% { transform: rotate(360deg); }
-				}
-				
-				/* Overlay Styles */
-				.popup-overlay {
-					position: fixed;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					background-color: rgba(0, 0, 0, 0.7);
-					display: none;
-					justify-content: center;
-					align-items: center;
-					z-index: 9999;
-				}
-				
-				.popup-content {
-					background-color: rgba(0, 0, 0, 0.8);
-					border-radius: 10px;
-					padding: 30px 50px;
-					text-align: center;
-					box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-					color: white;
-					max-width: 400px;
-				}
-				
-				.popup-content p {
-					margin: 0 0 15px 0;
-					font-size: 16px;
-					font-weight: 500;
-				}
-		
-				/* Success Popup Styles */
-				.success-popup {
-					background-color: rgba(0, 100, 0, 0.9);
-				}
-		
-				.success-icon {
-					font-size: 40px;
-					color: white;
-					margin-bottom: 15px;
-					height: 50px;
-					width: 50px;
-					line-height: 50px;
-					border-radius: 50%;
-					background-color: rgba(255, 255, 255, 0.2);
-					margin: 0 auto 15px auto;
-				}
-		
-				/* Error Popup Styles */
-				.error-popup {
-					background-color: rgba(139, 0, 0, 0.9);
-				}
-		
-				.error-icon {
-					font-size: 30px;
-					color: white;
-					margin-bottom: 15px;
-					height: 50px;
-					width: 50px;
-					line-height: 50px;
-					border-radius: 50%;
-					background-color: rgba(255, 255, 255, 0.2);
-					margin: 0 auto 15px auto;
-				}
-		
-				/* Button Styles */
-				.btn-ok {
-					background-color: white;
-					color: #333;
-					border: none;
-					padding: 8px 25px;
-					border-radius: 5px;
-					cursor: pointer;
-					font-weight: bold;
-					margin-top: 10px;
-					transition: background-color 0.3s ease;
-				}
-		
-				.btn-ok:hover {
-					background-color: #f0f0f0;
-				}
-			</style>
-		</div>
-	</div>
+    <section>
+      <h2 class="section-title"><span class="section-emoji">></span> Writing</h2>
+      <a href="https://medium.com/@gauravpaudel2013/unlocking-the-power-of-cron-jobs-and-advisory-locks-in-go-a-comprehensive-guide-661376339ec5" target="_blank" class="writing-item">
+        <div class="writing-title">Cron Jobs and Advisory Locks in Go</div>
+        <div class="writing-desc">A comprehensive guide to building reliable scheduled tasks</div>
+      </a>
+      <a href="https://medium.com/@gauravpaudel2013/unleashing-kubernetes-efficiency-a-tale-of-saving-2-3-minutes-of-node-waiting-time-c5dd0963fcd0" target="_blank" class="writing-item">
+        <div class="writing-title">Kubernetes Efficiency: Saving Node Wait Time</div>
+        <div class="writing-desc">How we reduced pod scheduling latency by 2-3 minutes</div>
+      </a>
+      <a href="https://medium.com/@gauravpaudel2013/integrate-hashi-corp-vault-with-gcs-backend-using-terraform-and-helm-in-k8s-cluster-f45c13b4c658" target="_blank" class="writing-item">
+        <div class="writing-title">HashiCorp Vault with GCS Backend</div>
+        <div class="writing-desc">Terraform and Helm integration in Kubernetes</div>
+      </a>
+      <a href="https://medium.com/@gauravpaudel2013/setup-up-ingress-in-kubernetes-with-azure-app-routing-and-securing-wildcard-domains-using-certbot-b1f57b70a2a4" target="_blank" class="writing-item">
+        <div class="writing-title">Kubernetes Ingress with Azure App Routing</div>
+        <div class="writing-desc">Securing wildcard domains with Certbot TLS</div>
+      </a>
+    </section>
 
-	<div id="fh5co-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p>&copy; &nbsp; Gaurav Poudel | 2026 &nbsp; </p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <section>
+      <h2 class="section-title"><span class="section-emoji">></span> Shots</h2>
+      <p class="bio" style="margin-bottom: 16px;">Capturing moments from my treks across the Himalayas.</p>
+      <div class="photos-grid">
+        <div class="photo" style="background-image: url('images/portfolio-1.jpg')"></div>
+        <div class="photo" style="background-image: url('images/ocean_stand.jpg')"></div>
+        <div class="photo" style="background-image: url('images/himal.jpeg')"></div>
+        <div class="photo" style="background-image: url('images/above-cloud.jpg')"></div>
+        <div class="photo" style="background-image: url('images/city.jpeg')"></div>
+        <div class="photo" style="background-image: url('images/cover.jpeg')"></div>
+      </div>
+    </section>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-	</div>
+    <section>
+      <h2 class="section-title"><span class="section-emoji">></span> Get in Touch</h2>
+      <div class="contact-links">
+        <a href="mailto:gauravpaudel2013@gmail.com" class="contact-link">gauravpaudel2013@gmail.com</a>
+      </div>
+    </section>
 
-	<!-- Essential Scripts Only -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.waypoints.min.js" defer></script>
-	<script src="js/jquery.stellar.min.js" defer></script>
-	<script src="js/main.js" defer></script>
-	
-	<!-- Performance Monitoring -->
-	<script>
-		window.addEventListener('load', function() {
-			if ('performance' in window) {
-				const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-				console.log(`Page load time: ${loadTime}ms`);
-			}
-		});
-	</script>
+    <footer>
+      <div class="footer-socials">
+        <a href="https://github.com/iamMrGaurav" target="_blank" class="footer-social github" title="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/iamgauravpoudel" target="_blank" class="footer-social linkedin" title="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://x.com/we_crood" target="_blank" class="footer-social twitter" title="X">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://medium.com/@gauravpaudel2013" target="_blank" class="footer-social medium" title="Medium">
+          <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        </a>
+        <a href="https://instagram.com/__we_crood__" target="_blank" class="footer-social instagram" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+        </a>
+      </div>
+      <div class="footer-text">
+        built with <span style="color: var(--spotify-green);">love</span> & code
+      </div>
+    </footer>
+  </div>
+
+  <!-- Spotify-style Music Player -->
+  <div class="spotify-player">
+    <audio id="backgroundMusic" loop>
+      <source src="audio/blue.mp3" type="audio/mpeg">
+    </audio>
+    <div class="spotify-card">
+      <div class="spotify-album-art">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </div>
+      <div class="spotify-info">
+        <div class="spotify-track">Blue</div>
+        <div class="spotify-artist">Yung Kai</div>
+        <div class="spotify-progress-container">
+          <span class="spotify-time" id="currentTime">0:00</span>
+          <div class="spotify-progress" id="progressBar">
+            <div class="spotify-progress-fill" id="progressFill"></div>
+          </div>
+          <span class="spotify-time" id="duration">0:00</span>
+        </div>
+      </div>
+      <div class="spotify-controls">
+        <button class="spotify-btn secondary" id="muteBtn" title="Mute">
+          <svg class="volume-icon" viewBox="0 0 24 24" width="16" height="16">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+          </svg>
+          <svg class="mute-icon" viewBox="0 0 24 24" width="16" height="16" style="display: none;">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+          </svg>
+        </button>
+        <button class="spotify-btn play-btn" id="playPauseBtn" title="Play">
+          <svg class="play-icon" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <svg class="pause-icon" viewBox="0 0 24 24" style="display: none;">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+        </button>
+        <div class="spotify-visualizer" id="visualizer">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
